@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F0F2F5;
+    /* White Background */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Hide scrollbars for full 3D canvas */
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
