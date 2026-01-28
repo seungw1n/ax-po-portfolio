@@ -1,6 +1,8 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { Text, Billboard } from '@react-three/drei';
 import useStore from '../../store/useStore';
+import { translations } from '../../data/translations';
 import { easing } from 'maath';
 import * as THREE from 'three';
 
@@ -22,7 +24,7 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
     const pointsData = useMemo(() => {
         const coords = new Float32Array(pointCount * 3);
         const velocities = new Float32Array(pointCount * 3);
-        const radius = 0.6;
+        const radius = 2.7; // 100% larger than 1.35
         for (let i = 0; i < pointCount; i++) {
             // Random point in sphere using spherical coordinates
             const phi = Math.random() * Math.PI * 2;
@@ -95,7 +97,7 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
         if (onNavigate) onNavigate(isActive ? '/' : '/' + id);
     };
 
-    // Complex Technical Construction Frame
+    // Complex Technical Construction Frame - Reverted to Cube/Box Grid on Hover
     const ConstructionFrame = ({ opacityScale = 1 }) => {
         const frameOpacity = useRef(0);
         const frameRef = useRef();
@@ -113,7 +115,7 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
         const s = 0.65; // Cube size
         const ext = 0.25; // Extended edges length
 
-        const lines = [
+        const lines = useMemo(() => [
             [[-s - ext, -s, -s], [s + ext, -s, -s]], [[-s - ext, -s, s], [s + ext, -s, s]],
             [[-s - ext, s, -s], [s + ext, s, -s]], [[-s - ext, s, s], [s + ext, s, s]],
             [[-s, -s - ext, -s], [-s, s + ext, -s]], [[s, -s - ext, -s], [s, s + ext, -s]],
@@ -122,7 +124,7 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
             [[-s, s, -s - ext], [-s, s, s + ext]], [[s, s, -s - ext], [s, s, s + ext]],
             [[-s, -s, -s], [s, s, s]], [[-s, s, s], [s, -s, -s]],
             [[-s, s, -s], [s, -s, s]], [[-s, -s, s], [s, s, -s]],
-        ];
+        ], [s, ext]);
 
         return (
             <group ref={frameRef}>
@@ -139,21 +141,56 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
                         <lineBasicMaterial attach="material" color="#000000" transparent opacity={0} linewidth={1} />
                     </line>
                 ))}
-
-                <mesh rotation={[Math.PI / 2, 0, 0]}>
-                    <torusGeometry args={[s * 1.3, 0.002, 16, 64]} />
-                    <meshBasicMaterial color="#000000" transparent opacity={0} />
-                </mesh>
-                <mesh rotation={[0, Math.PI / 4, 0]}>
-                    <torusGeometry args={[s * 1.3, 0.002, 16, 64]} />
-                    <meshBasicMaterial color="#000000" transparent opacity={0} />
-                </mesh>
             </group>
         );
     };
 
+    const dotTexture = useMemo(() => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 128;
+        canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+
+        // Draw a circular dot with a subtle radial gradient to look more "spherical"
+        const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+        gradient.addColorStop(0, '#ffffff');
+        gradient.addColorStop(0.8, '#ffffff');
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)'); // Soft edge for "sphere" look
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(64, 64, 60, 0, Math.PI * 2);
+        ctx.fill();
+
+        return new THREE.CanvasTexture(canvas);
+    }, []);
+
+    const language = useStore((state) => state.language);
+    const nodeLabel = useMemo(() => translations[language]?.nodes[id] || _label, [language, id, _label]);
+
     return (
         <group position={position}>
+            {/* 3. Text Label Above Node */}
+            <Billboard
+                follow={true}
+                lockX={false}
+                lockY={false}
+                lockZ={false}
+                position={[0, 3.3, 0]} // Positioned above the larger radius
+            >
+                <Text
+                    fontSize={1.02} // 200% larger than 0.34 (0.34 * 3)
+                    color="#444444"
+                    anchorX="center"
+                    anchorY="middle"
+                    outlineWidth={0.02}
+                    outlineColor="#ffffff"
+                    outlineOpacity={0.5}
+                >
+                    {nodeLabel}
+                </Text>
+            </Billboard>
+
             {/* Interaction Hit Box */}
             <mesh
                 onClick={handleClick}
@@ -161,37 +198,35 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
                 onPointerOut={() => setHovered(null)}
                 visible={false}
             >
-                <sphereGeometry args={[0.8, 16, 16]} />
+                <sphereGeometry args={[3.2, 16, 16]} /> // Scaled with new radius
                 <meshBasicMaterial />
             </mesh>
 
-            {/* Rotating Core with Longer Afterimage Trail */}
+            {/* Rotating Core - Motion Trail Removed */}
             <group ref={groupRef}>
-                {/* 6 Layers for a longer trail */}
-                {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-                    <group key={i} rotation={[0, -i * 0.08, 0]} scale={1 - i * 0.012}>
-                        <points>
-                            <bufferGeometry ref={i === 0 ? geometryRef : null}>
-                                <bufferAttribute
-                                    attach="attributes-position"
-                                    count={pointCount}
-                                    array={pointsData.coords}
-                                    itemSize={3}
-                                />
-                            </bufferGeometry>
-                            <pointsMaterial
-                                size={0.09} // Larger dots
-                                color="#000000"
-                                sizeAttenuation
-                                transparent
-                                opacity={0.6 * (1 - i * 0.15)} // Longer decay
+                <group>
+                    <points>
+                        <bufferGeometry ref={geometryRef}>
+                            <bufferAttribute
+                                attach="attributes-position"
+                                count={pointCount}
+                                array={pointsData.coords}
+                                itemSize={3}
                             />
-                        </points>
+                        </bufferGeometry>
+                        <pointsMaterial
+                            size={0.124}
+                            color="#000000"
+                            map={dotTexture}
+                            sizeAttenuation
+                            transparent
+                            alphaTest={0.1}
+                            opacity={0.6}
+                        />
+                    </points>
 
-                        {/* Layered Construction Frame */}
-                        <ConstructionFrame opacityScale={1 - i * 0.18} />
-                    </group>
-                ))}
+                    <ConstructionFrame opacityScale={1} />
+                </group>
             </group>
         </group>
     );

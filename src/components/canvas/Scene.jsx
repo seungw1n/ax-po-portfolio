@@ -24,7 +24,7 @@ const Scene = ({ onNavigate }) => {
     return (
         <Canvas
             className="w-full h-screen"
-            camera={{ position: [0, 0, 10], fov: 45 }}
+            camera={{ position: [0, 0, 10], fov: 100 }}
             dpr={[1, 2]} // Support high DPI
             gl={{ antialias: true, alpha: false }}
         >
