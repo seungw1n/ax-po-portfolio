@@ -1,18 +1,16 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import useStore, { SECTIONS } from '../../store/useStore';
-import { easing } from 'maath';
 import * as THREE from 'three';
 
-// Each section has a distinct particle formation
 const sectionConfigs = {
-    about: { radius: 2.5, spread: 0.5, rotSpeed: 0.06, shape: 'sphere' },
-    projects: { radius: 2.8, spread: 0.3, rotSpeed: 0.1, shape: 'cube' },
-    resume: { radius: 2.2, spread: 0.6, rotSpeed: 0.04, shape: 'ring' },
-    study: { radius: 2.6, spread: 0.4, rotSpeed: 0.08, shape: 'spiral' },
-    peer: { radius: 2.4, spread: 0.5, rotSpeed: 0.07, shape: 'double' },
-    library: { radius: 2.0, spread: 0.3, rotSpeed: 0.05, shape: 'column' },
-    articles: { radius: 3.0, spread: 0.7, rotSpeed: 0.09, shape: 'cloud' },
+    about:    { radius: 2.5, rotSpeed: 0.06, shape: 'sphere' },
+    projects: { radius: 2.8, rotSpeed: 0.1,  shape: 'cube' },
+    resume:   { radius: 2.2, rotSpeed: 0.04, shape: 'ring' },
+    study:    { radius: 2.6, rotSpeed: 0.08, shape: 'spiral' },
+    peer:     { radius: 2.4, rotSpeed: 0.07, shape: 'double' },
+    library:  { radius: 2.0, rotSpeed: 0.05, shape: 'column' },
+    articles: { radius: 3.0, rotSpeed: 0.09, shape: 'cloud' },
 };
 
 function generateShape(shape, radius, count) {
@@ -67,7 +65,7 @@ function generateShape(shape, radius, count) {
                 z = (Math.random() - 0.5) * radius * 3;
                 break;
             }
-            default: { // sphere
+            default: {
                 const phi = Math.random() * Math.PI * 2;
                 const theta = Math.acos(2 * Math.random() - 1);
                 const r = radius * Math.pow(Math.random(), 0.5);
@@ -90,9 +88,8 @@ const SinglePlanet = () => {
     const geometryRef = useRef();
     const currentSection = useStore((state) => state.currentSection);
 
-    const visual = useMemo(() => ({ rotation: 0, morphProgress: 0, prevSection: 0 }), []);
+    const visual = useMemo(() => ({ rotation: 0 }), []);
 
-    // Pre-generate all section target positions
     const sectionTargets = useMemo(() => {
         const targets = {};
         SECTIONS.forEach(id => {
@@ -102,11 +99,9 @@ const SinglePlanet = () => {
         return targets;
     }, []);
 
-    // Current positions buffer
     const currentPositions = useMemo(() => {
         const initial = new Float32Array(POINT_COUNT * 3);
-        const first = sectionTargets[SECTIONS[0]];
-        initial.set(first);
+        initial.set(sectionTargets[SECTIONS[0]]);
         return initial;
     }, [sectionTargets]);
 
@@ -132,12 +127,10 @@ const SinglePlanet = () => {
         const sectionId = SECTIONS[currentSection];
         const cfg = sectionConfigs[sectionId];
 
-        // Rotation
         visual.rotation += delta * cfg.rotSpeed;
         groupRef.current.rotation.y = visual.rotation;
         groupRef.current.rotation.x = Math.sin(t * 0.3) * 0.05;
 
-        // Morph particles toward target
         if (geometryRef.current) {
             const positions = geometryRef.current.attributes.position.array;
             const target = sectionTargets[sectionId];
@@ -147,7 +140,6 @@ const SinglePlanet = () => {
                 positions[i] += (target[i] - positions[i]) * lerpSpeed * delta;
             }
 
-            // Subtle jitter
             for (let i = 0; i < POINT_COUNT; i++) {
                 positions[i * 3] += Math.sin(t * 2 + i) * 0.001;
                 positions[i * 3 + 1] += Math.cos(t * 1.5 + i) * 0.001;
@@ -157,7 +149,6 @@ const SinglePlanet = () => {
             geometryRef.current.attributes.position.needsUpdate = true;
         }
     });
-
 
     return (
         <group position={[2.5, 0, 0]}>
@@ -181,7 +172,6 @@ const SinglePlanet = () => {
                         opacity={0.6}
                     />
                 </points>
-
             </group>
         </group>
     );

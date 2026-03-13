@@ -41,7 +41,7 @@ const Scene = ({ onNavigate }) => {
     return (
         <Canvas
             className="w-full h-screen"
-            camera={{ position: [0, 0, 8], fov: 60 }}
+            camera={{ position: [0, 0, 20], fov: 60 }}
             dpr={[1, 2]}
             gl={{ antialias: true, alpha: false }}
         >
