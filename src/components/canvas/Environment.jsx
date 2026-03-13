@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 const Environment = () => {
     // Volumetric 3D Grid: forms cubes/boxes in space
-    // X (Red/Horizontal), Y (Green/Vertical), Z (Blue/Depth)
+    // X (Red/Horizontal), Y (Yellow/Vertical), Z (Blue/Depth)
 
     const lines = React.useMemo(() => {
         const data = [];
@@ -20,6 +20,7 @@ const Environment = () => {
             for (let k = 0; k < count; k++) {
                 const y = min + j * spacing;
                 const z = min + k * spacing;
+                if (y === 0 || z === 0) continue;
                 data.push({
                     points: [new THREE.Vector3(min, y, z), new THREE.Vector3(max, y, z)],
                     color: '#ef4444',
@@ -28,14 +29,15 @@ const Environment = () => {
             }
         }
 
-        // 2. Y-axis lines (Green) - parallel to Vertical
+        // 2. Y-axis lines (Yellow) - parallel to Vertical
         for (let i = 0; i < count; i++) {
             for (let k = 0; k < count; k++) {
                 const x = min + i * spacing;
                 const z = min + k * spacing;
+                if (x === 0 || z === 0) continue;
                 data.push({
                     points: [new THREE.Vector3(x, min, z), new THREE.Vector3(x, max, z)],
-                    color: '#22c55e',
+                    color: '#facc15',
                     opacity: 0.15
                 });
             }
@@ -46,6 +48,7 @@ const Environment = () => {
             for (let j = 0; j < count; j++) {
                 const x = min + i * spacing;
                 const y = min + j * spacing;
+                if (x === 0 || y === 0) continue;
                 data.push({
                     points: [new THREE.Vector3(x, y, min), new THREE.Vector3(x, y, max)],
                     color: '#3b82f6',

@@ -1,14 +1,18 @@
 import { create } from 'zustand';
 
+export const SECTIONS = ['about', 'projects', 'resume', 'study', 'peer', 'library', 'articles'];
+
 const useStore = create((set) => ({
-    activeNode: null, // The currently clicked/focused node ID (string)
-    hoveredNode: null, // The currently hovered node ID
-    activeProject: null, // Selected project ID for detail view
-    language: 'KO', // Default language
+    activeNode: null,
+    hoveredNode: null,
+    activeProject: null,
+    language: 'KO',
+    currentSection: 0,
     setActiveNode: (nodeId) => set({ activeNode: nodeId }),
     setHoveredNode: (nodeId) => set({ hoveredNode: nodeId }),
     setActiveProject: (projectId) => set({ activeProject: projectId }),
     setLanguage: (lang) => set({ language: lang }),
+    setCurrentSection: (index) => set({ currentSection: index }),
 }));
 
 export default useStore;

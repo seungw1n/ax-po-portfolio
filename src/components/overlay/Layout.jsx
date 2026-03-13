@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Modal from './Modal';
+import SectionPanel from './SectionPanel';
 import useStore from '../../store/useStore';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -15,12 +16,13 @@ const Layout = () => {
         <div className="absolute inset-0 pointer-events-none flex flex-col justify-between">
             <Header />
 
-            {/* Modal handles its own positioning (absolute right) */}
+            <SectionPanel />
+
             <Modal />
 
             {/* Language Switcher (Bottom Left) */}
             <div
-                className="absolute bottom-8 left-8 pointer-events-auto"
+                className="absolute bottom-8 left-8 pointer-events-auto z-20"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >

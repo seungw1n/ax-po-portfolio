@@ -1,62 +1,50 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useRoute, useLocation } from 'wouter';
-import useStore from './store/useStore';
+import useStore, { SECTIONS } from './store/useStore';
 import Scene from './components/canvas/Scene';
 import Layout from './components/overlay/Layout';
 
 const RouteHandler = () => {
   const [location, setLocation] = useLocation();
-  const isInitialLoad = useRef(true);
 
   const setActiveNode = useStore((state) => state.setActiveNode);
   const setActiveProject = useStore((state) => state.setActiveProject);
+  const setCurrentSection = useStore((state) => state.setCurrentSection);
   const activeNode = useStore((state) => state.activeNode);
   const activeProject = useStore((state) => state.activeProject);
 
-  // Redirect to /projects on initial landing at root
   useEffect(() => {
-    if (isInitialLoad.current && location === '/') {
-      setLocation('/projects');
-    }
-    isInitialLoad.current = false;
-  }, []);
-
-  // Sync URL -> Store
-  // We use regex matching on 'location' string which is primitive and stable
-  useEffect(() => {
-    // 1. Check Project Route: /project/:id
+    // 1. Project detail route: /project/:id
     const projectMatch = location.match(/^\/project\/([^/]+)$/);
     if (projectMatch) {
       const pid = projectMatch[1];
       if (activeNode !== 'projects' || activeProject !== pid) {
         setActiveNode('projects');
         setActiveProject(pid);
+        setCurrentSection(SECTIONS.indexOf('projects'));
       }
       return;
     }
 
-    // 2. Check Generic Node Route: /:node
-    // Avoid matching if we are at root or project detail
+    // 2. Section route: /:node
     if (location !== '/' && !location.startsWith('/project/')) {
-      const nodeName = location.substring(1); // remove leading slash
-      const validNodes = ['projects', 'about', 'resume', 'study', 'peer', 'library', 'articles'];
-
-      if (validNodes.includes(nodeName)) {
-        // Fix: Also check if we need to clear activeProject even if activeNode matches
+      const nodeName = location.substring(1);
+      if (SECTIONS.includes(nodeName)) {
         if (activeNode !== nodeName || activeProject !== null) {
           setActiveNode(nodeName);
           setActiveProject(null);
         }
+        setCurrentSection(SECTIONS.indexOf(nodeName));
         return;
       }
     }
 
-    // 3. Root or invalid path -> Reset
+    // 3. Root -> close modal
     if (location === '/' && activeNode !== null) {
       setActiveNode(null);
       setActiveProject(null);
     }
-  }, [location, activeNode, activeProject, setActiveNode, setActiveProject]);
+  }, [location, activeNode, activeProject, setActiveNode, setActiveProject, setCurrentSection]);
 
   return null;
 };
@@ -73,7 +61,6 @@ function App() {
       <ErrorBoundary>
         <RouteHandler />
       </ErrorBoundary>
-      {/* Pass setLocation to Scene for 3D interactions */}
       <ErrorBoundary>
         <Scene onNavigate={setLocation} />
       </ErrorBoundary>
