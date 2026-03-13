@@ -23,9 +23,25 @@ const VisualContent = ({ section, index }) => {
     if (section.type === 'intro') {
         return (
             <VisualWrapper index={index}>
-                <div className="w-full h-full bg-gray-900 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-gray-500">
-                    <span className="text-2xl font-bold mb-2">TITLE SLIDE IMAGE</span>
-                    <span className="text-sm">4시간 동안 가설 3개 검증하기</span>
+                <div className="w-full h-full bg-gray-900 overflow-hidden shadow-2xl flex items-center justify-center">
+                    {section.thumbnailUrl ? (
+                        <img src={section.thumbnailUrl} alt={section.title} className="w-full h-full object-cover" />
+                    ) : (
+                        <div className="flex flex-col items-center justify-center text-gray-500">
+                            <span className="text-2xl font-bold mb-2 text-gray-400">TITLE SLIDE IMAGE</span>
+                            <span className="text-sm">{section.title}</span>
+                        </div>
+                    )}
+                </div>
+            </VisualWrapper>
+        );
+    }
+
+    if (section.imageUrl) {
+        return (
+            <VisualWrapper index={index}>
+                <div className="w-full h-full bg-black overflow-hidden shadow-2xl flex items-center justify-center">
+                    <img src={section.imageUrl} alt={section.title} className="w-full h-full object-contain" />
                 </div>
             </VisualWrapper>
         );
@@ -58,6 +74,7 @@ const ProjectDetail = ({ project, onBack }) => {
             title: project.title,
             sectionType: '배경', // Intro default type
             subtitle: project.subtitle,
+            thumbnailUrl: project.thumbnailUrl,
             content: project.description || project.summary,
             visual: 'dashboard'
         },
@@ -67,6 +84,7 @@ const ProjectDetail = ({ project, onBack }) => {
             sectionType: f.sectionType || '실험', // Fallback for safety
             subtitle: f.subtitle,
             content: f.content || f.description,
+            imageUrl: f.imageUrl,
             visual: 'feature',
             placeholderColor: f.placeholderColor
         }))
@@ -195,8 +213,16 @@ const ProjectDetail = ({ project, onBack }) => {
                             className={`project-section min-h-[calc(100vh-64px)] flex flex-col justify-center p-8 lg:p-24 border-b border-gray-50 last:border-0 ${idx === 0 ? 'pt-24' : ''}`}
                         >
                             {/* Mobile Visual (Visible only on small screens) */}
-                            <div className="lg:hidden w-full aspect-video bg-gray-100 rounded-lg mb-8 flex items-center justify-center text-gray-400 text-xs font-medium">
-                                {section.title} Visual
+                            <div className="lg:hidden w-full aspect-video bg-gray-100 rounded-lg mb-8 overflow-hidden flex items-center justify-center text-gray-400 text-xs font-medium border border-gray-100">
+                                {(idx === 0 ? section.thumbnailUrl : section.imageUrl) ? (
+                                    <img
+                                        src={idx === 0 ? section.thumbnailUrl : section.imageUrl}
+                                        alt={section.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <span>{section.title} Visual</span>
+                                )}
                             </div>
 
                             <div className="mb-8">

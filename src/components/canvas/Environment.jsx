@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 const Environment = () => {
     // Volumetric 3D Grid: forms cubes/boxes in space
-    // X (Red), Y (Yellow/Depth), Z (Blue/Vertical)
+    // X (Red/Horizontal), Y (Green/Vertical), Z (Blue/Depth)
 
     const lines = React.useMemo(() => {
         const data = [];
@@ -22,26 +22,26 @@ const Environment = () => {
                 const z = min + k * spacing;
                 data.push({
                     points: [new THREE.Vector3(min, y, z), new THREE.Vector3(max, y, z)],
-                    color: '#ff4d4d',
+                    color: '#ef4444',
                     opacity: 0.15
                 });
             }
         }
 
-        // 2. Y-axis lines (Yellow) - parallel to Depth
+        // 2. Y-axis lines (Green) - parallel to Vertical
         for (let i = 0; i < count; i++) {
             for (let k = 0; k < count; k++) {
                 const x = min + i * spacing;
                 const z = min + k * spacing;
                 data.push({
                     points: [new THREE.Vector3(x, min, z), new THREE.Vector3(x, max, z)],
-                    color: '#facc15',
+                    color: '#22c55e',
                     opacity: 0.15
                 });
             }
         }
 
-        // 3. Z-axis lines (Blue) - parallel to Height
+        // 3. Z-axis lines (Blue) - parallel to Depth
         for (let i = 0; i < count; i++) {
             for (let j = 0; j < count; j++) {
                 const x = min + i * spacing;

@@ -15,7 +15,7 @@ export const getNodesLayout = () => {
 
     return nodeData.map((node, i) => {
         const y = 1 - (i / (nodeData.length - 1)) * 2;
-        const radius = Math.sqrt(1 - y * y) * 4;
+        const radius = Math.sqrt(1 - y * y) * 7;
         const theta = phi * i * 3;
 
         const x = Math.cos(theta) * radius;
@@ -23,7 +23,7 @@ export const getNodesLayout = () => {
 
         return {
             ...node,
-            position: [x, y * 2, z]
+            position: [x, y * 4, z]
         };
     });
 };

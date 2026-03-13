@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'wouter';
 import useStore from '../../store/useStore';
@@ -6,6 +6,7 @@ import { translations } from '../../data/translations';
 import ProjectList from './ProjectList';
 import ProjectDetail from './ProjectDetail';
 import GenericContent from './GenericContent';
+import { client, urlFor } from '../../utils/sanity';
 
 const Modal = () => {
     const activeNode = useStore((state) => state.activeNode);
@@ -13,12 +14,72 @@ const Modal = () => {
     const language = useStore((state) => state.language);
     const [, setLocation] = useLocation();
 
+    const [sanityProjects, setSanityProjects] = useState([]);
+
+    useEffect(() => {
+        if (activeNode === 'projects') {
+            client.fetch('*[_type == "project"]{ ..., sections[]{ ..., sectionImage{ asset-> } } }').then((data) => {
+                if (!data) return;
+                const formatted = data.map(p => {
+                    const features = (p.sections || []).map(section => {
+                        // Portable Text body를 plain text로 변환
+                        const bodyText = (section.body || [])
+                            .filter(block => block._type === 'block')
+                            .map(block => block.children?.map(span => span.text).join('') || '')
+                            .join('\n\n');
+
+                        return {
+                            title: section.sectionTitle || "Untitled Section",
+                            sectionType: section.sectionType || '실험',
+                            content: bodyText || p.summary || "",
+                            imageUrl: section.sectionImage?.asset ? urlFor(section.sectionImage).url() : null,
+                            placeholderColor: "bg-gray-800"
+                        };
+                    });
+
+                    // 섹션이 없을 경우 fallback
+                    if (features.length === 0) {
+                        features.push({
+                            title: "Project Overview",
+                            sectionType: "개요",
+                            content: p.summary || "No specific details provided yet.",
+                        });
+                    }
+
+                    return {
+                        id: p._id,
+                        title: p.title || "Untitled Project",
+                        subtitle: p.summary || "Case Study",
+                        summary: p.summary || "",
+                        description: p.summary || "",
+                        thumbnailUrl: (p.thumbnail && p.thumbnail.asset) ? urlFor(p.thumbnail).url() : null,
+                        tags: {
+                            industry: p.domainTags?.[0] || "Sanity",
+                            type: p.organizationTags?.[0] || "External"
+                        },
+                        features: features
+                    };
+                });
+                setSanityProjects(formatted);
+            }).catch((err) => {
+                console.error("Sanity fetch error:", err);
+            });
+        }
+    }, [activeNode]);
+
     // Get content based on activeNode and language
     const data = activeNode ? translations[language]?.modal[activeNode] : null;
 
+    // Merge static and sanity projects
+    const allItems = useMemo(() => {
+        if (activeNode !== 'projects') return [];
+        const staticItems = data?.items || [];
+        return [...staticItems, ...sanityProjects];
+    }, [data, sanityProjects, activeNode]);
+
     // Resolve full project object if activeProject is set
-    const selectedProjectData = activeProject && data?.items
-        ? data.items.find(p => p.id === activeProject)
+    const selectedProjectData = activeProject && allItems.length > 0
+        ? allItems.find(p => String(p.id) === String(activeProject))
         : null;
 
     const isDetailView = !!activeProject;
@@ -77,11 +138,11 @@ const Modal = () => {
                                         onBack={() => setLocation('/projects')}
                                     />
                                 </div>
-                            ) : activeNode === 'projects' && data?.items ? (
+                            ) : activeNode === 'projects' && allItems.length > 0 ? (
                                 <ProjectList
                                     title={data.title}
                                     description={data.description}
-                                    items={data.items}
+                                    items={allItems}
                                     onSelect={(item) => setLocation('/project/' + item.id)}
                                 />
                             ) : (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRoute, useLocation } from 'wouter';
 import useStore from './store/useStore';
 import Scene from './components/canvas/Scene';
@@ -6,19 +6,28 @@ import Layout from './components/overlay/Layout';
 
 const RouteHandler = () => {
   const [location, setLocation] = useLocation();
+  const isInitialLoad = useRef(true);
 
   const setActiveNode = useStore((state) => state.setActiveNode);
   const setActiveProject = useStore((state) => state.setActiveProject);
   const activeNode = useStore((state) => state.activeNode);
   const activeProject = useStore((state) => state.activeProject);
 
+  // Redirect to /projects on initial landing at root
+  useEffect(() => {
+    if (isInitialLoad.current && location === '/') {
+      setLocation('/projects');
+    }
+    isInitialLoad.current = false;
+  }, []);
+
   // Sync URL -> Store
   // We use regex matching on 'location' string which is primitive and stable
   useEffect(() => {
     // 1. Check Project Route: /project/:id
-    const projectMatch = location.match(/^\/project\/(\d+)$/);
+    const projectMatch = location.match(/^\/project\/([^/]+)$/);
     if (projectMatch) {
-      const pid = parseInt(projectMatch[1], 10);
+      const pid = projectMatch[1];
       if (activeNode !== 'projects' || activeProject !== pid) {
         setActiveNode('projects');
         setActiveProject(pid);
@@ -43,7 +52,6 @@ const RouteHandler = () => {
     }
 
     // 3. Root or invalid path -> Reset
-    // Only reset if we are NOT at root and have state, OR if we are at root and have state
     if (location === '/' && activeNode !== null) {
       setActiveNode(null);
       setActiveProject(null);

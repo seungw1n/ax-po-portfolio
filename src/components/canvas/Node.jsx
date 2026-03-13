@@ -8,6 +8,7 @@ import * as THREE from 'three';
 
 const Node = ({ id, label: _label, position, onNavigate }) => {
     const groupRef = useRef();
+    const textRef = useRef();
 
     const activeNode = useStore((state) => state.activeNode);
     const hoveredNode = useStore((state) => state.hoveredNode);
@@ -16,6 +17,7 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
     const isHovered = hoveredNode === id;
     const isActive = activeNode === id;
     const isOtherActive = activeNode && activeNode !== id;
+    const isOtherHovered = hoveredNode && hoveredNode !== id;
 
     const visual = useMemo(() => ({ expansion: 1, turbulence: 0, trailRotation: 0 }), []);
 
@@ -82,13 +84,16 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
         }
 
         // Global opacity handling
+        const targetOpacity = isOtherActive ? 0.15 : isOtherHovered ? 0.3 : 1;
         if (groupRef.current) {
-            const targetOpacity = isOtherActive ? 0.15 : 1;
             groupRef.current.traverse((child) => {
                 if (child.material && child.material.transparent) {
                     easing.damp(child.material, 'opacity', targetOpacity, 0.3, delta);
                 }
             });
+        }
+        if (textRef.current) {
+            easing.damp(textRef.current, 'fillOpacity', targetOpacity, 0.3, delta);
         }
     });
 
@@ -176,10 +181,11 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
                 lockX={false}
                 lockY={false}
                 lockZ={false}
-                position={[0, 3.3, 0]} // Positioned above the larger radius
+                position={[0, 2.2, 0]}
             >
                 <Text
-                    fontSize={1.02} // 200% larger than 0.34 (0.34 * 3)
+                    ref={textRef}
+                    fontSize={1.02}
                     color="#444444"
                     anchorX="center"
                     anchorY="middle"
@@ -194,11 +200,11 @@ const Node = ({ id, label: _label, position, onNavigate }) => {
             {/* Interaction Hit Box */}
             <mesh
                 onClick={handleClick}
-                onPointerOver={() => setHovered(id)}
-                onPointerOut={() => setHovered(null)}
+                onPointerOver={(e) => { e.stopPropagation(); setHovered(id); }}
+                onPointerOut={(e) => { e.stopPropagation(); setHovered(null); }}
                 visible={false}
             >
-                <sphereGeometry args={[3.2, 16, 16]} /> // Scaled with new radius
+                <sphereGeometry args={[1.2, 16, 16]} />
                 <meshBasicMaterial />
             </mesh>
 

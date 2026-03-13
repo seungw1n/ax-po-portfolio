@@ -29,16 +29,26 @@ const ProjectList = ({ title, description, items, onSelect }) => {
                         className="group cursor-pointer bg-white border border-gray-100 rounded-none overflow-hidden hover:bg-gray-50 transition-all duration-300 flex flex-col"
                     >
                         {/* Thumbnail - Hero Mockup Style */}
-                        <div className="aspect-[16/10] bg-gray-900 overflow-hidden relative flex flex-col items-center justify-center p-6 text-gray-500 border-b border-gray-100">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800 to-transparent opacity-50" />
-                            <motion.div
-                                className="relative z-10 flex flex-col items-center text-center space-y-2"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.4 }}
-                            >
-                                <span className="text-lg font-bold opacity-30 select-none">TITLE SLIDE IMAGE</span>
-                                <span className="text-xs opacity-40 uppercase tracking-widest font-semibold select-none">{item.title}</span>
-                            </motion.div>
+                        <div className="aspect-[16/10] bg-gray-900 overflow-hidden relative border-b border-gray-100 flex items-center justify-center">
+                            {item.thumbnailUrl ? (
+                                <img
+                                    src={item.thumbnailUrl}
+                                    alt={item.title}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                            ) : (
+                                <>
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800 to-transparent opacity-50" />
+                                    <motion.div
+                                        className="relative z-10 flex flex-col items-center text-center space-y-2"
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ duration: 0.4 }}
+                                    >
+                                        <span className="text-lg font-bold opacity-30 select-none text-gray-500">TITLE SLIDE IMAGE</span>
+                                        <span className="text-xs opacity-40 uppercase tracking-widest font-semibold select-none text-gray-500">{item.title}</span>
+                                    </motion.div>
+                                </>
+                            )}
 
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
