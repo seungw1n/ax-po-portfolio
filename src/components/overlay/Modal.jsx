@@ -6,6 +6,7 @@ import { translations } from '../../data/translations';
 import ProjectList from './ProjectList';
 import ProjectDetail from './ProjectDetail';
 import GenericContent from './GenericContent';
+import AboutMeCover from './AboutMeCover';
 import { client, urlFor } from '../../utils/sanity';
 
 const Modal = () => {
@@ -131,7 +132,9 @@ const Modal = () => {
 
                         <div className={`overflow-y-auto flex-1 h-full ${isDetailView ? 'p-0' : 'p-8 md:p-10 mt-6'}`}>
                             {/* Content Logic */}
-                            {activeNode === 'projects' && selectedProjectData ? (
+                            {activeNode === 'about-me' ? (
+                                <AboutMeCover />
+                            ) : activeNode === 'projects' && selectedProjectData ? (
                                 <div className="h-full w-full">
                                     <ProjectDetail
                                         project={selectedProjectData}

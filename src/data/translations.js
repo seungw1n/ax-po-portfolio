@@ -6,7 +6,7 @@ export const translations = {
         },
         nodes: {
             projects: "프로젝트",
-            about: "소개",
+            'about-me': "소개",
             resume: "이력서",
             study: "학습 아카이브",
             peer: "동료 평가",
@@ -1040,7 +1040,28 @@ B2C 직장인, B2B 6차산업 대상
                     }
                 ]
             },
-            about: { title: "소개", content: "비전: 연결된 지능(Connected Intelligence)..." },
+            'about-me': {
+                kicker: "About Me",
+                greeting: "Hello,",
+                name: "정승원",
+                tagline: "웹 위에서 인터랙티브한 3D 경험을 만드는 크리에이티브 디벨로퍼입니다.",
+                intro: "5년간의 프로덕트 사고에 셰이더, 모션, 픽셀의 촉각적 감각에 대한 매일의 호기심이 더해집니다. 데이터와 인터랙션이 만나는 지점에서 의미 있는 경험을 디자인하고 만듭니다.",
+                stackLabel: "STACK",
+                skills: [
+                    { category: "Languages", items: ["JavaScript", "TypeScript", "GLSL", "HTML / CSS"] },
+                    { category: "Frameworks", items: ["React", "Next.js", "Vite"] },
+                    { category: "3D / WebGL", items: ["Three.js", "React Three Fiber", "Drei", "WebGPU"] },
+                    { category: "Shaders", items: ["GLSL", "Post-processing", "Shadertoy"] },
+                    { category: "Motion", items: ["GSAP", "Framer Motion", "Lenis", "Theatre.js"] },
+                    { category: "Graphics", items: ["Blender", "Figma", "Photoshop", "After Effects"] },
+                    { category: "Tooling", items: ["Git", "Vercel", "Leva", "r3f-perf"] }
+                ],
+                meta: {
+                    location: "Seoul, KR",
+                    availability: "프로젝트 협업 가능",
+                    contact: "tmddnjs1411@gmail.com"
+                }
+            },
             resume: { title: "이력서 & 연락처", content: "5년차 PO 경력 기술서..." },
             study: { title: "학습 아카이브", content: "AI, UX, 데이터 지식 그래프..." },
             peer: { title: "동료 평가", content: "동료들이 말하는 협업 강점..." },
@@ -1055,7 +1076,7 @@ B2C 직장인, B2B 6차산업 대상
         },
         nodes: {
             projects: "Projects",
-            about: "About Me",
+            'about-me': "About Me",
             resume: "Resume",
             study: "Study Archive",
             peer: "Peer Review",
@@ -1107,7 +1128,28 @@ B2C 직장인, B2B 6차산업 대상
                     }
                 ]
             },
-            about: { title: "About Me", content: "Vision: Connected Intelligence..." },
+            'about-me': {
+                kicker: "About Me",
+                greeting: "Hello,",
+                name: "Seungwon Jeong",
+                tagline: "A creative developer crafting interactive 3D experiences for the web.",
+                intro: "Five years of product thinking meets a daily obsession with shaders, motion, and the tactile feel of pixels. I design and build experiences where data, interaction, and visual systems collide.",
+                stackLabel: "STACK",
+                skills: [
+                    { category: "Languages", items: ["JavaScript", "TypeScript", "GLSL", "HTML / CSS"] },
+                    { category: "Frameworks", items: ["React", "Next.js", "Vite"] },
+                    { category: "3D / WebGL", items: ["Three.js", "React Three Fiber", "Drei", "WebGPU"] },
+                    { category: "Shaders", items: ["GLSL", "Post-processing", "Shadertoy"] },
+                    { category: "Motion", items: ["GSAP", "Framer Motion", "Lenis", "Theatre.js"] },
+                    { category: "Graphics", items: ["Blender", "Figma", "Photoshop", "After Effects"] },
+                    { category: "Tooling", items: ["Git", "Vercel", "Leva", "r3f-perf"] }
+                ],
+                meta: {
+                    location: "Seoul, KR",
+                    availability: "Available for projects",
+                    contact: "tmddnjs1411@gmail.com"
+                }
+            },
             resume: { title: "Resume & Contact", content: "5+ Years Experience as PO..." },
             study: { title: "Study Archive", content: "Knowledge Graph: AI, UX, Data..." },
             peer: { title: "Peer Review", content: "Endorsements from colleagues..." },
@@ -1122,7 +1164,7 @@ B2C 직장인, B2B 6차산업 대상
         },
         nodes: {
             projects: "项目",
-            about: "关于我",
+            'about-me': "关于我",
             resume: "简历",
             study: "学习档案",
             peer: "同行评审",
@@ -1131,7 +1173,28 @@ B2C 직장인, B2B 6차산업 대상
         },
         modal: {
             projects: { title: "项目", content: "展示数据与AI产品计划..." },
-            about: { title: "关于我", content: "愿景：连接智能..." },
+            'about-me': {
+                kicker: "About Me",
+                greeting: "你好,",
+                name: "郑承元",
+                tagline: "在网络上打造交互式 3D 体验的创意开发者。",
+                intro: "五年的产品思维与对着色器、动效与像素质感的日常探索相结合。我在数据、交互与视觉系统的交汇点设计与构建体验。",
+                stackLabel: "STACK",
+                skills: [
+                    { category: "Languages", items: ["JavaScript", "TypeScript", "GLSL", "HTML / CSS"] },
+                    { category: "Frameworks", items: ["React", "Next.js", "Vite"] },
+                    { category: "3D / WebGL", items: ["Three.js", "React Three Fiber", "Drei", "WebGPU"] },
+                    { category: "Shaders", items: ["GLSL", "Post-processing", "Shadertoy"] },
+                    { category: "Motion", items: ["GSAP", "Framer Motion", "Lenis", "Theatre.js"] },
+                    { category: "Graphics", items: ["Blender", "Figma", "Photoshop", "After Effects"] },
+                    { category: "Tooling", items: ["Git", "Vercel", "Leva", "r3f-perf"] }
+                ],
+                meta: {
+                    location: "首尔, 韩国",
+                    availability: "接受项目合作",
+                    contact: "tmddnjs1411@gmail.com"
+                }
+            },
             resume: { title: "简历与联系方式", content: "5年以上产品负责人经验..." },
             study: { title: "学习档案", content: "知识图谱：AI, UX, 数据..." },
             peer: { title: "同行评审", content: "同事的推荐与评价..." },
@@ -1146,7 +1209,7 @@ B2C 직장인, B2B 6차산업 대상
         },
         nodes: {
             projects: "プロジェクト",
-            about: "自己紹介",
+            'about-me': "自己紹介",
             resume: "履歴書",
             study: "学習アーカイブ",
             peer: "他己評価",
@@ -1155,7 +1218,28 @@ B2C 직장인, B2B 6차산업 대상
         },
         modal: {
             projects: { title: "プロジェクト", content: "データおよびAIプロダクトの取り組み..." },
-            about: { title: "自己紹介", content: "ビジョン：コネクテッド・インテリジェンス..." },
+            'about-me': {
+                kicker: "About Me",
+                greeting: "こんにちは、",
+                name: "ジョン・スンウォン",
+                tagline: "ウェブ上でインタラクティブな3D体験を作るクリエイティブデベロッパーです。",
+                intro: "5年間のプロダクト思考に、シェーダー・モーション・ピクセルの手触りへの日々の好奇心が重なります。データとインタラクションが交差する場所で意味のある体験をデザインし、構築します。",
+                stackLabel: "STACK",
+                skills: [
+                    { category: "Languages", items: ["JavaScript", "TypeScript", "GLSL", "HTML / CSS"] },
+                    { category: "Frameworks", items: ["React", "Next.js", "Vite"] },
+                    { category: "3D / WebGL", items: ["Three.js", "React Three Fiber", "Drei", "WebGPU"] },
+                    { category: "Shaders", items: ["GLSL", "Post-processing", "Shadertoy"] },
+                    { category: "Motion", items: ["GSAP", "Framer Motion", "Lenis", "Theatre.js"] },
+                    { category: "Graphics", items: ["Blender", "Figma", "Photoshop", "After Effects"] },
+                    { category: "Tooling", items: ["Git", "Vercel", "Leva", "r3f-perf"] }
+                ],
+                meta: {
+                    location: "ソウル, 韓国",
+                    availability: "プロジェクト募集中",
+                    contact: "tmddnjs1411@gmail.com"
+                }
+            },
             resume: { title: "履歴書 & 連絡先", content: "プロダクトオーナーとして5年以上の経験..." },
             study: { title: "学習アーカイブ", content: "ナレッジグラフ：AI, UX, データ..." },
             peer: { title: "他己評価", content: "同僚からの推薦とフィードバック..." },
@@ -1170,7 +1254,7 @@ B2C 직장인, B2B 6차산업 대상
         },
         nodes: {
             projects: "Proyectos",
-            about: "Sobre Mí",
+            'about-me': "Sobre Mí",
             resume: "Currículum",
             study: "Archivo",
             peer: "Reseñas",
@@ -1179,7 +1263,28 @@ B2C 직장인, B2B 6차산업 대상
         },
         modal: {
             projects: { title: "Proyectos", content: "Presentando iniciativas de productos de IA y datos..." },
-            about: { title: "Sobre Mí", content: "Visión: Inteligencia Conectada..." },
+            'about-me': {
+                kicker: "About Me",
+                greeting: "Hola,",
+                name: "Seungwon Jeong",
+                tagline: "Desarrollador creativo construyendo experiencias 3D interactivas para la web.",
+                intro: "Cinco años de pensamiento de producto se encuentran con una obsesión diaria por los shaders, el movimiento y la textura de los píxeles. Diseño y construyo experiencias donde datos, interacción y sistemas visuales convergen.",
+                stackLabel: "STACK",
+                skills: [
+                    { category: "Languages", items: ["JavaScript", "TypeScript", "GLSL", "HTML / CSS"] },
+                    { category: "Frameworks", items: ["React", "Next.js", "Vite"] },
+                    { category: "3D / WebGL", items: ["Three.js", "React Three Fiber", "Drei", "WebGPU"] },
+                    { category: "Shaders", items: ["GLSL", "Post-processing", "Shadertoy"] },
+                    { category: "Motion", items: ["GSAP", "Framer Motion", "Lenis", "Theatre.js"] },
+                    { category: "Graphics", items: ["Blender", "Figma", "Photoshop", "After Effects"] },
+                    { category: "Tooling", items: ["Git", "Vercel", "Leva", "r3f-perf"] }
+                ],
+                meta: {
+                    location: "Seúl, KR",
+                    availability: "Disponible para proyectos",
+                    contact: "tmddnjs1411@gmail.com"
+                }
+            },
             resume: { title: "Currículum y Contacto", content: "Más de 5 años de experiencia como PO..." },
             study: { title: "Archivo de Estudio", content: "Gráfico de conocimiento: IA, UX, Datos..." },
             peer: { title: "Reseñas de Pares", content: "Recomendaciones de colegas..." },

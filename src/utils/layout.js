@@ -2,7 +2,7 @@
 
 export const nodeData = [
     { id: 'projects', label: 'Projects', color: '#00f3ff' },
-    { id: 'about', label: 'About Me', color: '#ff0055' },
+    { id: 'about-me', label: 'About Me', color: '#ff0055' },
     { id: 'resume', label: 'Resume', color: '#dddddd' },
     { id: 'study', label: 'Study Archive', color: '#ffff00' },
     { id: 'peer', label: 'Peer Review', color: '#00ff66' },

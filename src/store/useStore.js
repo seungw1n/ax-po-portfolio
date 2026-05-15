@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export const SECTIONS = ['about', 'projects', 'resume', 'study', 'peer', 'library', 'articles'];
+export const SECTIONS = ['about-me', 'projects', 'resume', 'study', 'peer', 'library', 'articles'];
 
 const useStore = create((set) => ({
     activeNode: null,
