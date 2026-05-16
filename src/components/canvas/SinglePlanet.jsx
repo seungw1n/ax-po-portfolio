@@ -4,7 +4,7 @@ import useStore, { SECTIONS } from '../../store/useStore';
 import * as THREE from 'three';
 
 const sectionConfigs = {
-    about:    { radius: 2.5, rotSpeed: 0.06, shape: 'sphere' },
+    'about-me': { radius: 2.5, rotSpeed: 0.06, shape: 'sphere' },
     projects: { radius: 2.8, rotSpeed: 0.1,  shape: 'cube' },
     resume:   { radius: 2.2, rotSpeed: 0.04, shape: 'ring' },
     study:    { radius: 2.6, rotSpeed: 0.08, shape: 'spiral' },
