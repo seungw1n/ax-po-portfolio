@@ -19,7 +19,7 @@ const Modal = () => {
 
     useEffect(() => {
         if (activeNode === 'projects') {
-            client.fetch('*[_type == "project"]{ ..., sections[]{ ..., sectionImage{ asset-> } } }').then((data) => {
+            client.fetch('*[_type == "project"] | order(_createdAt desc){ ..., sections[]{ ..., sectionImage{ asset-> } } }').then((data) => {
                 if (!data) return;
                 const formatted = data.map(p => {
                     const features = (p.sections || []).map(section => {
@@ -75,7 +75,7 @@ const Modal = () => {
     const allItems = useMemo(() => {
         if (activeNode !== 'projects') return [];
         const staticItems = data?.items || [];
-        return [...staticItems, ...sanityProjects];
+        return [...sanityProjects, ...staticItems];
     }, [data, sanityProjects, activeNode]);
 
     // Resolve full project object if activeProject is set
