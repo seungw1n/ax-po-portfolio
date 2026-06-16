@@ -13,34 +13,116 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         }),
 
-        // 2. 요약
+        // 2. 서브타이틀
+        defineField({
+            name: 'subtitle',
+            title: '서브타이틀',
+            type: 'string',
+            description: '표지에서 제목 아래에 표시되는 한 줄 부제입니다.',
+        }),
+
+        // 3. 요약
         defineField({
             name: 'summary',
             title: '요약 (Summary)',
             type: 'text',
             rows: 3,
-            description: '프로젝트 목록 카드에 표시될 짧은 설명입니다.',
+            description: '프로젝트 목록 카드 설명 + 표지 개요 본문으로 쓰입니다.',
         }),
 
-        // 3. 도메인 태그
+        // 3. 기간
         defineField({
-            name: 'domainTags',
-            title: '도메인 (예: Web, App)',
+            name: 'period',
+            title: '기간',
+            type: 'string',
+            description: '예: 2024.01 - 2024.03, 또는 3개월',
+        }),
+
+        // 4. 직무
+        defineField({
+            name: 'role',
+            title: '직무',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'PO', value: 'PO' },
+                    { title: '서비스 기획', value: '서비스기획' },
+                    { title: '프로덕트 디자이너', value: '프로덕트 디자이너' },
+                ],
+                layout: 'dropdown',
+            },
+        }),
+
+        // 5. 소속
+        defineField({
+            name: 'organization',
+            title: '소속',
+            type: 'string',
+            options: {
+                list: [
+                    { title: '빅밸류 (BigValue)', value: '빅밸류' },
+                    { title: '휴맥스모빌리티 (HUMAX mobility)', value: '휴맥스모빌리티' },
+                    { title: '블링커스 (Blinkers)', value: '블링커스' },
+                    { title: '인터보이드 (intervoid)', value: '인터보이드' },
+                ],
+                layout: 'dropdown',
+            },
+        }),
+
+        // 6. 기여
+        defineField({
+            name: 'contributions',
+            title: '기여',
             type: 'array',
             of: [{ type: 'string' }],
-            options: { layout: 'tags' },
+            options: {
+                layout: 'list',
+                list: [
+                    { title: '문제 정의', value: '문제 정의' },
+                    { title: '유저 리서치', value: '유저 리서치' },
+                    { title: '화면 설계', value: '화면 설계' },
+                    { title: '프로토타입', value: '프로토타입' },
+                    { title: 'FE 개발', value: 'FE 개발' },
+                    { title: '1인 개발', value: '1인 개발' },
+                ],
+            },
         }),
 
-        // 4. 소속 태그
+        // 7. 제품 유형 (구: 도메인 태그)
         defineField({
-            name: 'organizationTags',
-            title: '소속 (예: 개인 프로젝트, OO 부트캠프)',
+            name: 'productTypes',
+            title: '제품 유형',
             type: 'array',
             of: [{ type: 'string' }],
-            options: { layout: 'tags' },
+            options: {
+                layout: 'list',
+                list: [
+                    { title: '웹', value: '웹' },
+                    { title: '모바일', value: '모바일' },
+                    { title: '키오스크', value: '키오스크' },
+                    { title: '코어', value: '코어' },
+                    { title: '에이전트', value: '에이전트' },
+                ],
+            },
         }),
 
-        // 5. 대표 썸네일 이미지
+        // 8. 경험 구분 (구: 소속 태그)
+        defineField({
+            name: 'experienceType',
+            title: '경험 구분',
+            type: 'string',
+            options: {
+                list: [
+                    { title: '실무', value: '실무' },
+                    { title: '개인', value: '개인' },
+                    { title: '창업', value: '창업' },
+                    { title: '해커톤', value: '해커톤' },
+                ],
+                layout: 'dropdown',
+            },
+        }),
+
+        // 9. 대표 썸네일 이미지
         defineField({
             name: 'thumbnail',
             title: '대표 썸네일 이미지',
@@ -49,7 +131,7 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         }),
 
-        // 6. 섹션 단위 본문
+        // 10. 섹션 단위 본문
         defineField({
             name: 'sections',
             title: '본문 섹션',
@@ -102,6 +184,23 @@ export default defineType({
                                     fields: [
                                         defineField({ name: 'caption', type: 'string', title: '이미지 설명' }),
                                     ],
+                                }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'highlights',
+                            title: '항목 박스 (라벨:값)',
+                            description: '본문 아래에 박스로 표시될 핵심 항목입니다. 예) 라벨="타깃", 값="B2B 의사결정자"',
+                            type: 'array',
+                            of: [
+                                defineArrayMember({
+                                    name: 'highlight',
+                                    type: 'object',
+                                    fields: [
+                                        defineField({ name: 'label', title: '라벨', type: 'string', validation: (Rule) => Rule.required() }),
+                                        defineField({ name: 'value', title: '값', type: 'string', validation: (Rule) => Rule.required() }),
+                                    ],
+                                    preview: { select: { title: 'label', subtitle: 'value' } },
                                 }),
                             ],
                         }),

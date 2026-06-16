@@ -33,6 +33,7 @@ const Modal = () => {
                             title: section.sectionTitle || "Untitled Section",
                             sectionType: section.sectionType || '실험',
                             content: bodyText || p.summary || "",
+                            highlights: (section.highlights || []).filter(h => h?.label && h?.value),
                             imageUrl: section.sectionImage?.asset ? urlFor(section.sectionImage).url() : null,
                             placeholderColor: "bg-gray-800"
                         };
@@ -50,13 +51,19 @@ const Modal = () => {
                     return {
                         id: p._id,
                         title: p.title || "Untitled Project",
-                        subtitle: p.summary || "Case Study",
+                        subtitle: p.subtitle || "",
                         summary: p.summary || "",
                         description: p.summary || "",
                         thumbnailUrl: (p.thumbnail && p.thumbnail.asset) ? urlFor(p.thumbnail).url() : null,
                         tags: {
-                            industry: p.domainTags?.[0] || "Sanity",
-                            type: p.organizationTags?.[0] || "External"
+                            industry: p.productTypes?.[0] || "Sanity",
+                            type: p.organization || "External"
+                        },
+                        meta: {
+                            organization: p.organization || "",
+                            role: p.role || "",
+                            period: p.period || "",
+                            contributions: p.contributions || []
                         },
                         features: features
                     };

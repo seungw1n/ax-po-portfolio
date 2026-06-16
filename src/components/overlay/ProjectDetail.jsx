@@ -84,6 +84,7 @@ const ProjectDetail = ({ project, onBack }) => {
             sectionType: f.sectionType || '실험', // Fallback for safety
             subtitle: f.subtitle,
             content: f.content || f.description,
+            highlights: f.highlights || [],
             imageUrl: f.imageUrl,
             visual: 'feature',
             placeholderColor: f.placeholderColor
@@ -210,7 +211,7 @@ const ProjectDetail = ({ project, onBack }) => {
                         <div
                             key={idx}
                             data-index={idx}
-                            className={`project-section min-h-[calc(100vh-64px)] flex flex-col justify-center p-8 lg:p-24 border-b border-gray-50 last:border-0 ${idx === 0 ? 'pt-24' : ''}`}
+                            className={`project-section min-h-[calc(100vh-64px)] flex flex-col justify-center p-8 lg:p-24 border-b border-gray-50 last:border-0`}
                         >
                             {/* Mobile Visual (Visible only on small screens) */}
                             <div className="lg:hidden w-full aspect-video bg-gray-100 rounded-lg mb-8 overflow-hidden flex items-center justify-center text-gray-400 text-xs font-medium border border-gray-100">
@@ -226,24 +227,19 @@ const ProjectDetail = ({ project, onBack }) => {
                             </div>
 
                             <div className="mb-8">
-                                {idx === 0 && (
-                                    <div className="inline-block px-3 py-1 bg-black text-white text-xs font-bold rounded-full mb-6">
-                                        {project.tags?.industry || 'PROJECT'}
-                                    </div>
+                                {section.subtitle && (
+                                    <p className="text-xl text-gray-500 font-medium leading-relaxed mb-3">{section.subtitle}</p>
                                 )}
                                 <h2 className={`font-bold mb-4 text-black tracking-tight leading-tight ${idx === 0 ? 'text-4xl lg:text-5xl' : 'text-3xl'}`}>
                                     {section.title}
                                 </h2>
-                                {section.subtitle && (
-                                    <p className="text-xl text-gray-500 font-medium leading-relaxed">{section.subtitle}</p>
-                                )}
                             </div>
 
                             {/* Render Content */}
-                            <div className="prose prose-lg text-gray-600 font-light leading-relaxed">
+                            <div className="prose prose-lg text-gray-800 font-normal leading-relaxed">
                                 <ReactMarkdown
                                     components={{
-                                        strong: ({ node, ...props }) => <span className="font-bold text-gray-800" {...props} />,
+                                        strong: ({ node, ...props }) => <span className="font-bold text-black" {...props} />,
                                         h3: ({ node, ...props }) => <h3 className="text-xl font-bold text-black mt-8 mb-4 border-l-4 border-black pl-3" {...props} />,
                                         ul: ({ node, ...props }) => <ul className="list-disc pl-5 mb-4 space-y-2" {...props} />,
                                         li: ({ node, ...props }) => <li className="pl-1" {...props} />,
@@ -253,6 +249,37 @@ const ProjectDetail = ({ project, onBack }) => {
                                     {section.content}
                                 </ReactMarkdown>
                             </div>
+
+                            {/* Section Highlight Boxes (라벨:값, no radius / no gap) */}
+                            {section.highlights?.length > 0 && (
+                                <div className="mt-10 grid grid-cols-2 border-t border-l border-gray-200">
+                                    {section.highlights.map((h, hIdx) => (
+                                        <div key={hIdx} className="border-r border-b border-gray-200 p-4">
+                                            <div className="text-xs font-bold uppercase tracking-wide text-gray-400 mb-1">{h.label}</div>
+                                            <div className="text-sm font-semibold text-gray-900">{h.value}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Cover Meta (소속/직무/기간/기여) */}
+                            {idx === 0 && project.meta && (
+                                <dl className="mt-10 pt-8 border-t border-gray-100 space-y-3">
+                                    {[
+                                        ['소속', project.meta.organization],
+                                        ['직무', project.meta.role],
+                                        ['기간', project.meta.period],
+                                        ['기여', (project.meta.contributions || []).join(' · ')]
+                                    ]
+                                        .filter(([, value]) => value)
+                                        .map(([label, value]) => (
+                                            <div key={label} className="flex items-baseline gap-4 text-sm">
+                                                <dt className="w-16 shrink-0 font-bold text-gray-400">{label}</dt>
+                                                <dd className="text-gray-700">{value}</dd>
+                                            </div>
+                                        ))}
+                                </dl>
+                            )}
                         </div>
                     ))}
 
