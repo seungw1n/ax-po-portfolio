@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import useStore from '../../store/useStore';
+import useStore, { SECTIONS } from '../../store/useStore';
 import { translations } from '../../data/translations';
+import AboutTimeline from './AboutTimeline';
 
 const ease = [0.23, 1, 0.32, 1];
+
+const sectionIndex = `${String(SECTIONS.indexOf('about-me') + 1).padStart(2, '0')} / ${String(SECTIONS.length).padStart(2, '0')}`;
 
 const AboutMeCover = () => {
     const language = useStore((state) => state.language);
@@ -17,6 +20,9 @@ const AboutMeCover = () => {
         name,
         tagline,
         intro,
+        highlights = [],
+        principlesLabel,
+        principles = [],
         stackLabel,
         skills = [],
         meta = {},
@@ -31,7 +37,7 @@ const AboutMeCover = () => {
                 transition={{ duration: 0.5, ease }}
                 className="flex items-baseline justify-between text-[11px] tracking-[0.25em] uppercase text-black/50"
             >
-                <span>01 / 07 — {kicker}</span>
+                <span>{sectionIndex} — {kicker}</span>
                 <span className="hidden md:inline">Portfolio · v1.0</span>
             </motion.div>
 
@@ -62,9 +68,10 @@ const AboutMeCover = () => {
                         transition={{ duration: 0.7, ease, delay: 0.2 }}
                         className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-black"
                     >
-                        I&rsquo;m {name},
-                        <br />
-                        <span className="text-black/70">{tagline}</span>
+                        {name}
+                        <span className="block mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug text-black/70">
+                            {tagline}
+                        </span>
                     </motion.h1>
 
                     <motion.p
@@ -76,16 +83,49 @@ const AboutMeCover = () => {
                         {intro}
                     </motion.p>
 
-                    {/* Vertical rule + label, decorative */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, ease, delay: 0.6 }}
-                        className="mt-auto pt-10 hidden md:flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-black/30"
-                    >
-                        <span className="block w-8 h-px bg-black/30" />
-                        <span>scroll · explore · build</span>
-                    </motion.div>
+                    {/* Impact numbers */}
+                    {highlights.length > 0 && (
+                        <motion.dl
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease, delay: 0.45 }}
+                            className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 border-y border-black/10 py-6"
+                        >
+                            {highlights.map((item) => (
+                                <div key={item.label}>
+                                    <dt className="text-2xl md:text-3xl font-bold tracking-tight text-black">
+                                        {item.value}
+                                    </dt>
+                                    <dd className="mt-1 text-[11px] tracking-[0.15em] uppercase text-black/40 leading-relaxed">
+                                        {item.label}
+                                    </dd>
+                                </div>
+                            ))}
+                        </motion.dl>
+                    )}
+
+                    {/* Working principles */}
+                    {principles.length > 0 && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, ease, delay: 0.6 }}
+                            className="mt-auto pt-10"
+                        >
+                            <p className="flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-black/30">
+                                <span className="block w-8 h-px bg-black/30" />
+                                <span>{principlesLabel}</span>
+                            </p>
+                            <ul className="mt-4 space-y-2">
+                                {principles.map((line) => (
+                                    <li key={line} className="flex gap-3 text-sm md:text-[15px] leading-relaxed text-black/60">
+                                        <span className="mt-[9px] block w-1 h-1 shrink-0 rounded-full bg-black/30" />
+                                        <span>{line}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    )}
                 </div>
 
                 {/* Right: stack panel */}
@@ -120,6 +160,9 @@ const AboutMeCover = () => {
                     </ul>
                 </motion.aside>
             </div>
+
+            {/* Timeline + synthesis */}
+            <AboutTimeline />
 
             {/* Bottom meta strip */}
             <motion.div

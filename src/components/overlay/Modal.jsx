@@ -7,6 +7,7 @@ import ProjectList from './ProjectList';
 import ProjectDetail from './ProjectDetail';
 import GenericContent from './GenericContent';
 import AboutMeCover from './AboutMeCover';
+import ResumeContent from './ResumeContent';
 import { client, urlFor } from '../../utils/sanity';
 
 const Modal = () => {
@@ -141,6 +142,8 @@ const Modal = () => {
                             {/* Content Logic */}
                             {activeNode === 'about-me' ? (
                                 <AboutMeCover />
+                            ) : activeNode === 'resume' ? (
+                                <ResumeContent />
                             ) : activeNode === 'projects' && selectedProjectData ? (
                                 <div className="h-full w-full">
                                     <ProjectDetail
