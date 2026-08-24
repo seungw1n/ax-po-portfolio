@@ -164,12 +164,12 @@ const SinglePlanet = () => {
                     </bufferGeometry>
                     <pointsMaterial
                         size={0.12}
-                        color="#000000"
+                        color="#3B3125"
                         map={dotTexture}
                         sizeAttenuation
                         transparent
                         alphaTest={0.1}
-                        opacity={0.6}
+                        opacity={0.72}
                     />
                 </points>
             </group>

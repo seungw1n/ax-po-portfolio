@@ -4,9 +4,9 @@
 
 @layer base {
   body {
-    background-color: #F0F2F5;
-    /* White Background */
-    color: #000000;
+    background-color: #E9E0CB;
+    /* Aged parchment - matches the drafting sheet in Environment.jsx */
+    color: #1F1A13;
     margin: 0;
     padding: 0;
     overflow: hidden;

@@ -50,6 +50,7 @@ const RouteHandler = () => {
 };
 
 import ErrorBoundary from './components/common/ErrorBoundary';
+import PaperTexture from './components/overlay/PaperTexture';
 import useAnalytics from './hooks/useAnalytics';
 
 function App() {
@@ -57,13 +58,14 @@ function App() {
   const [location, setLocation] = useLocation();
 
   return (
-    <div className="relative w-full h-screen bg-white">
+    <div className="relative w-full h-screen" style={{ backgroundColor: '#E9E0CB' }}>
       <ErrorBoundary>
         <RouteHandler />
       </ErrorBoundary>
       <ErrorBoundary>
         <Scene onNavigate={setLocation} />
       </ErrorBoundary>
+      <PaperTexture />
       <Layout />
     </div>
   );
