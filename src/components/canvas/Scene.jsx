@@ -2,6 +2,7 @@ import React, { Suspense, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Preload } from '@react-three/drei';
 import SinglePlanet from './SinglePlanet';
+import SubjectFrame from './SubjectFrame';
 import Lights from './Lights';
 import Environment from './Environment';
 import useStore, { SECTIONS } from '../../store/useStore';
@@ -49,6 +50,7 @@ const Scene = ({ onNavigate }) => {
 
             <Suspense fallback={null}>
                 <Lights />
+                <SubjectFrame />
                 <SinglePlanet />
                 <Preload all />
             </Suspense>
