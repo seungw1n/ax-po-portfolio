@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import useStore from '../../store/useStore';
-import { timeline } from '../../data/timeline';
+import { timeline } from '../../data/pages/about-me/timeline';
 
 /* 축 전체 범위: 2017.01 → 2026.09 를 100% 로 본다 */
 const AXIS_START = '2017-01';
@@ -41,6 +41,20 @@ const BAR_TONE = {
     study: 'bg-amber-800/70',
     activity: 'bg-violet-900/55',
     other: 'bg-black/45',
+};
+
+/* 트랙 기준 좌표 — 축이 프롤로그 칸만큼 밀려 있으므로 offsetParent 를 거슬러 올라가 더한다.
+   (getBoundingClientRect 는 모달의 scale 애니메이션에 영향을 받아 쓰지 않는다) */
+const offsetIn = (element, root) => {
+    let x = 0;
+    let y = 0;
+    let node = element;
+    while (node && node !== root) {
+        x += node.offsetLeft;
+        y += node.offsetTop;
+        node = node.offsetParent;
+    }
+    return { x, y };
 };
 
 /* 카드 한 장: 번호 / 활동명 / 간단한 내용 / 결과·레슨런 */
@@ -91,6 +105,32 @@ const TimelineCard = React.forwardRef(({ item, index, labels }, ref) => (
 
 TimelineCard.displayName = 'TimelineCard';
 
+/* 축이 시작되기 전 한 칸 — 번호도 기간 막대도 없고, 결과·레슨런도 두지 않는다 */
+const PrologueCard = ({ item }) => (
+    <article className="w-[280px] md:w-[320px] shrink-0 flex flex-col border border-dashed border-black/15 bg-white/60 backdrop-blur-sm">
+        <div className="flex items-baseline justify-between gap-3 px-5 pt-4">
+            <span className="text-[10px] tracking-[0.2em] uppercase text-black/45">
+                <span className="text-black/25">—</span>
+                <span className="mx-2 text-black/20">/</span>
+                {item.cardPeriod}
+            </span>
+            <span className={`shrink-0 text-[10px] tracking-[0.15em] uppercase border px-2 py-0.5 ${TAG_TONE[item.tone] || TAG_TONE.other}`}>
+                {item.kind}
+            </span>
+        </div>
+
+        <h4 className="px-5 mt-3 text-base font-bold leading-snug text-black">
+            {item.title}
+        </h4>
+
+        {(item.body || []).map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="px-5 mt-3 last:pb-5 text-[13px] leading-relaxed text-black/60">
+                {paragraph}
+            </p>
+        ))}
+    </article>
+);
+
 const AboutTimeline = () => {
     const language = useStore((state) => state.language);
     const data = timeline[language] || timeline.EN;
@@ -105,13 +145,15 @@ const AboutTimeline = () => {
 
     const eras = useMemo(() => data?.eras || [], [data]);
 
-    /* 카드에 통번호를 매겨 축 위의 구간과 짝지운다 */
-    const numberedItems = useMemo(() => {
-        let n = 0;
-        return eras.flatMap((era) =>
-            era.items.map((item) => ({ ...item, index: n++, eraId: era.id }))
-        );
-    }, [eras]);
+    /* 시작 시점 순으로 줄 세운 뒤 통번호를 매긴다 — 카드 순서가 축 위 순서와 항상 같아진다 */
+    const numberedItems = useMemo(
+        () =>
+            eras
+                .flatMap((era) => era.items.map((item) => ({ ...item, eraId: era.id })))
+                .sort((a, b) => toMonths(a.start) - toMonths(b.start) || toMonths(a.end) - toMonths(b.end))
+                .map((item, index) => ({ ...item, index })),
+        [eras]
+    );
 
     /* 기간이 겹치는 구간은 아래 줄로 내려 서로 가리지 않게 배치 (번호 라벨 폭만큼 여유를 둔다) */
     const lanes = useMemo(() => {
@@ -134,19 +176,22 @@ const AboutTimeline = () => {
     /* 카드 왼쪽 위 모서리와 축 위 기간 시작점을 잇는 선의 좌표를 실측한다 */
     useLayoutEffect(() => {
         const measure = () => {
-            if (!trackRef.current) return;
+            const track = trackRef.current;
+            if (!track) return;
             setLinks(
                 numberedItems
                     .map((item, i) => {
                         const segment = segmentRefs.current[i];
                         const card = cardRefs.current[i];
                         if (!segment || !card) return null;
+                        const bar = offsetIn(segment, track);
+                        const box = offsetIn(card, track);
                         return {
                             key: `${item.eraId}-${item.index}`,
-                            x1: segment.offsetLeft,
-                            y1: segment.offsetTop + segment.offsetHeight,
-                            x2: card.offsetLeft,
-                            y2: card.offsetTop,
+                            x1: bar.x,
+                            y1: bar.y + segment.offsetHeight,
+                            x2: box.x,
+                            y2: box.y,
                         };
                     })
                     .filter(Boolean)
@@ -169,14 +214,17 @@ const AboutTimeline = () => {
         const state = animRef.current;
         if (!el) return;
 
-        const distance = state.target - el.scrollLeft;
-        if (Math.abs(distance) < 0.5) {
-            el.scrollLeft = state.target;
-            state.raf = 0;
-            return;
-        }
-        el.scrollLeft += distance * 0.18;
-        state.raf = requestAnimationFrame(glide);
+        const step = () => {
+            const distance = state.target - el.scrollLeft;
+            if (Math.abs(distance) < 0.5) {
+                el.scrollLeft = state.target;
+                state.raf = 0;
+                return;
+            }
+            el.scrollLeft += distance * 0.18;
+            state.raf = requestAnimationFrame(step);
+        };
+        step();
     }, []);
 
     /**
@@ -246,7 +294,7 @@ const AboutTimeline = () => {
 
     if (!data) return null;
 
-    const { label, title, description, hint, cardLabels, analysis } = data;
+    const { label, title, description, hint, cardLabels, analysis, prologue } = data;
 
     return (
         <section className="mt-14 md:mt-20">
@@ -281,8 +329,25 @@ const AboutTimeline = () => {
                     className="overflow-x-auto px-6 md:px-8 py-8 cursor-grab active:cursor-grabbing [scrollbar-width:thin] [overscroll-behavior-x:contain]"
                 >
                     <div ref={trackRef} className="relative w-max">
+                      <div className="flex items-stretch gap-4" style={{ height: 92 + lanes.length * 15 }}>
+                        {/* 축이 시작되기 전 한 칸 — 카드 한 장과 같은 너비 */}
+                        {prologue && (
+                            <div className="relative w-[280px] md:w-[320px] shrink-0">
+                                <div className="h-[46px] border-l border-dashed border-black/20 pl-3 pr-2 pt-0.5">
+                                    <p className="text-[10px] tracking-[0.2em] uppercase text-black/35 truncate">
+                                        00 · {prologue.period}
+                                    </p>
+                                    <p className="mt-0.5 text-[13px] font-bold leading-tight text-black/55 truncate">
+                                        {prologue.eraTitle}
+                                    </p>
+                                </div>
+                                {/* 축 바깥 구간이라 점선으로만 이어둔다 */}
+                                <div className="absolute left-0 right-0 top-[54px] border-t border-dashed border-black/25" />
+                            </div>
+                        )}
+
                         {/* 시간 축: 2017.01 → 2026.09 를 100% 로 하는 하나의 연속된 선 */}
-                        <div className="relative w-full" style={{ height: 92 + lanes.length * 15 }}>
+                        <div className="relative flex-1">
                             {/* 구간(era) 밴드 */}
                             {eras.map((era, i) => {
                                 const band = toBand(era.start, era.end);
@@ -348,6 +413,7 @@ const AboutTimeline = () => {
                                 })
                             )}
                         </div>
+                      </div>
 
                         {/* 카드 ↔ 기간 시작점 연결선 */}
                         <svg
@@ -369,6 +435,7 @@ const AboutTimeline = () => {
 
                         {/* 카드 행 */}
                         <div className="flex items-stretch gap-4 pt-12">
+                            {prologue && <PrologueCard item={prologue} />}
                             {numberedItems.map((item) => (
                                 <TimelineCard
                                     key={`${item.eraId}-${item.index}`}
@@ -407,6 +474,9 @@ const AboutTimeline = () => {
                             <li key={lens.title} className="bg-white/70 backdrop-blur-sm p-6">
                                 <p className="text-[11px] tracking-[0.25em] uppercase text-black/35">
                                     {String(i + 1).padStart(2, '0')}
+                                    {lens.kicker && (
+                                        <span className="ml-2 text-black/50">{lens.kicker}</span>
+                                    )}
                                 </p>
                                 <h4 className="mt-2 text-base md:text-lg font-bold leading-snug text-black">
                                     {lens.title}
@@ -414,6 +484,18 @@ const AboutTimeline = () => {
                                 <p className="mt-3 text-[13px] md:text-sm leading-relaxed text-black/65">
                                     {lens.body}
                                 </p>
+                                {lens.points && (
+                                    <ul className="mt-4 border-t border-black/10">
+                                        {lens.points.map((point) => (
+                                            <li
+                                                key={point}
+                                                className="py-2 border-b border-black/10 text-[12px] md:text-[13px] leading-relaxed text-black/60"
+                                            >
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
                         ))}
                     </ol>

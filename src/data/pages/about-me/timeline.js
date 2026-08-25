@@ -6,12 +6,24 @@
 export const timeline = {
     KO: {
         label: "TIMELINE",
-        title: "스무 살부터 지금까지",
-        description: "시각디자인 전공으로 시작해 데이터 프로덕트 오너가 되기까지, 여섯 구간의 기록입니다.",
+        title: "종이 공책에서 지금까지",
+        description: "대학 이전의 한 칸에서 시작해, 시각디자인 전공으로 출발해 데이터 프로덕트 오너가 되기까지 여섯 구간의 기록입니다.",
         hint: "가로로 스크롤하거나 드래그하세요",
         cardLabels: {
             result: "결과",
             lesson: "레슨런"
+        },
+        prologue: {
+            period: "~ 2016",
+            eraTitle: "만드는 사람이 되기 전",
+            kind: "그 이전",
+            tone: "other",
+            cardPeriod: "대학 입학 이전",
+            title: "종이 공책과 도서관",
+            body: [
+                "초등학생 때 종이 공책에 게임을 만들었습니다. 규칙을 적고 지도를 그린 다음, 쉬는 시간마다 반 친구들을 불러 모아 직접 해보게 했습니다. 반응이 시원찮으면 그날 밤 규칙을 고쳐 다음 날 다시 가져갔습니다. 사용자라는 말을 몰랐을 뿐, 만들고 보여주고 고치는 일은 그때부터 반복하고 있었습니다.",
+                "고등학교 3년 동안은 다독왕이었습니다. 장르를 가리지 않고 읽다 보니 관심 가는 분야가 계속 늘어났고, 서로 상관없어 보이는 이야기 사이에서 닮은 구조를 찾는 버릇도 이때 생겼습니다."
+            ]
         },
         eras: [
             {
@@ -28,8 +40,8 @@ export const timeline = {
                         end: "2023-08",
                         kind: "학업",
                         tone: "study",
-                        title: "서울시립대학교 시각디자인 · 창업학 복수전공",
-                        body: "초등학생 때 종이 공책으로 게임을 만들어 반 친구들을 유저로 모으던 습관을, 전공이라는 형태로 이어가고 싶었습니다. 남들과 다른 작품관을 갖기 위해 해부학·빛·역사처럼 전공 밖 개념을 끌어와 연결하는 훈련을 반복했고, 사용자 편의만이 아니라 비즈니스 성장까지 보기 위해 창업학을 복수전공했습니다.",
+                        title: "서울시립대학교 시각디자인 전공",
+                        body: "미술사를 공부하다 한 시대의 작품이 철학과 공학, 역사의 성취와 전부 맞물려 있다는 걸 알게 됐습니다. 그때부터 한 분야만 파는 대신 크로스 폴리네이터처럼 여러 분야를 옮겨 다니며 레퍼런스를 벤치마크했고, 남의 작품과 무엇이 다른지를 기준으로 제 작품관과 브랜딩을 세웠습니다. 화면 위에서는 사용자가 무엇을 먼저 보고 어떻게 움직이는지를 다루는 UX·UI 디자인을 배웠습니다.",
                         result: "학점우수장학(2021.02), 졸업 프로젝트 헬스케어 마이데이터 공유 플랫폼 'DATO' 외 2건",
                         lesson: "창의는 없던 것을 만드는 일이 아니라, 멀리 있는 두 개념 사이에서 연결을 찾아내는 일이다."
                     },
@@ -50,9 +62,9 @@ export const timeline = {
                         end: "2020-09",
                         kind: "병역",
                         tone: "other",
-                        title: "군복무",
-                        body: "경진대회 직후 입대해 19개월을 보냈습니다. 내 역할보다 남의 역할을 먼저 이해해야 조직의 일이 굴러간다는 걸 매일 확인했고, 소심한 성격이 낯선 사람들과 부대끼며 조금씩 바뀌었습니다.",
-                        result: "복무 기간 동안 제품·창업이라는 방향을 굳히고 복학",
+                        title: "군 복무",
+                        body: "포병으로 입대했지만 대대 정훈장교 자리가 공석이 되며 정훈병으로 보직이 바뀌었습니다. 대대의 정신전력 정훈 교육을 맡아 교육을 기획하고 직접 진행했고, 대대 도서관 관리병을 겸하며 책을 정리하는 김에 닥치는 대로 읽었습니다. 그중 『제로 투 원』이 전역 후의 방향을 정해줬습니다. 만들고 싶은 것을 직접 만들려면 비즈니스와 개발이 필요하다고 보고, 창업학 복수전공과 개발을 배우기 위한 교환학생 계획을 복무 중에 세웠습니다.",
+                        result: "연대 정훈평가 1등 · 전역 전에 창업학 복수전공과 교환학생 계획 확정",
                         lesson: "리더십은 팔로워십에서 시작된다."
                     }
                 ]
@@ -65,6 +77,17 @@ export const timeline = {
                 title: "전공 밖으로 나가다",
                 inflection: "디자인의 언어만으로는 만들고 싶은 것을 다 만들 수 없다는 자각",
                 items: [
+                    {
+                        period: "2021.03 — 2023.08",
+                        start: "2021-03",
+                        end: "2023-08",
+                        kind: "학업",
+                        tone: "study",
+                        title: "서울시립대학교 창업학 복수전공",
+                        body: "잘 만든 화면도 돈이 도는 구조 위에 있지 않으면 오래가지 못한다는 걸 보고, 2021년 1학기부터 창업학을 복수전공했습니다. 수익 전략과 기업가 정신을 배웠는데 남은 것은 방법론보다 태도였습니다. 성장에는 단계가 있고 그 단계마다 지금 가장 중요한 하나에 집중해야 한다는 것, 그리고 어려운 문제일수록 집념으로 끝까지 붙잡는 사람이 결국 답을 만든다는 것.",
+                        result: "복수전공 이수(2023.08 졸업) · 이후 모든 기획에 수익 구조와 성장 단계를 함께 놓는 기준이 됨",
+                        lesson: "안 되는 이유를 세는 대신 되게 할 방법 하나를 붙잡는 것, 그게 기업가 정신이다."
+                    },
                     {
                         period: "2021.06 — 2021.07",
                         start: "2021-06",
@@ -253,38 +276,60 @@ export const timeline = {
         ],
         analysis: {
             label: "SYNTHESIS",
-            title: "구간을 관통하는 네 가지",
-            intro: "여섯 구간은 서로 다른 일처럼 보이지만, 같은 동작이 반경만 넓히며 반복된 기록에 가깝습니다. 전환점마다 무엇이 바뀌었고 무엇이 그대로였는지를 정리했습니다.",
+            title: "결국 남는 네 가지",
+            intro: "타임라인을 다 펼쳐놓고 나면 남는 것은 네 가지입니다. 무엇을 중요하게 여기는지, 그 태도가 어디서 왔는지, 지금 무엇을 할 수 있는지, 그리고 팀에서 어떻게 일하는지.",
             lenses: [
                 {
-                    title: "하나의 루프, 커지는 반경",
-                    body: "세계를 정하고 → 사람을 모으고 → 반응을 보고 규칙을 고친다. 이 루프는 종이 공책 게임으로 반 친구들을 모으던 초등학생 때 이미 완성돼 있었습니다. 이후 바뀐 것은 반경뿐입니다. 반 친구 수십 명 → 인터뷰 300명·B2B 60개 사 → 커뮤니티 300명 → 검색으로 만나는 515만 페이지. 직무명이 디자이너에서 PO로 바뀌는 동안에도 동작은 한 번도 바뀌지 않았습니다."
+                    kicker: "철학",
+                    title: "보이지 않는 것을 봅니다",
+                    body: "사람이 정말 원하는 것은 드러난 요구 뒤에 숨어 있다고 봅니다. 고객이 산 것은 NFT가 아니라 와인이었고, 필요했던 것은 데이터가 아니라 데이터로 내리는 결정이었습니다. 그래서 요구를 받으면 그대로 만들지 않고 '이 사람이 지금 무엇을 결정하지 못하고 있는가'로 한 번 바꿔 적습니다. 그다음은 늘 같습니다. 가장 작게 만들어 내놓고, 사람들이 실제로 어디서 멈추는지 보고, 규칙을 고칩니다. 판단이 갈릴 때는 제 취향이 아니라 숫자와 사용자의 말을 따릅니다. 좋은 기획은 처음부터 정답을 아는 게 아니라, 틀렸다는 걸 남보다 빨리 아는 구조를 만드는 일이라고 생각합니다."
                 },
                 {
-                    title: "다양성은 취향이 아니라 방법론의 결과",
-                    body: "관련 없어 보이는 개념 사이에서 연결과 비유를 찾는 사고법은 필연적으로 전공 밖으로 사람을 밀어냅니다. 시각디자인 → 창업학 복수전공 → 컴퓨터과학 교환학생 → 머신러닝 부트캠프 → 에이전틱 코딩이라는 경로는 산만함이 아니라 같은 방법론의 반복입니다. 그리고 2024년 9월, 마케팅(SEO)·도메인 지식(상권/부동산)·콘텐츠·데이터·구현이 한 사람에게 동시에 필요한 자리를 만나며 그 조각들이 처음으로 하나의 직무와 정확히 겹쳤습니다."
+                    kicker: "배경",
+                    title: "디자인·엔지니어링·창업이 한 사람 안에 있습니다",
+                    body: "시각디자인으로 시작해 사용자가 머뭇거리지 않고 다음 행동으로 넘어가는 화면을 만드는 법을 배웠습니다. 블링커스에서 온보딩과 정보 구조를 다시 짜 체류시간을 48% 늘린 것이 그 결과입니다. 교환학생으로 컴퓨터과학을 택하면서 만들고 싶은 것을 직접 만들 수 있게 됐고, 창업 동아리와 복수전공, 경진대회를 지나며 그 화면이 회사의 어떤 숫자로 돌아오는지를 보게 됐습니다. 세 갈래를 따로 배운 게 아니라 하나를 하다 막혀서 다음을 배운 순서입니다. 지금은 이 조합 자체가 차별점입니다. 마케팅과 도메인 지식, 콘텐츠, 데이터, 구현을 한 사람이 붙잡고 있으면 넘겨주는 과정에서 새는 것이 없습니다."
                 },
                 {
-                    title: "겸손이 먼저, 주도성이 나중",
-                    body: "순서가 중요했습니다. UX 리서치에서 경청과 겸손을 먼저 배웠고(2021–2022), 창업 활동과 해커톤에서 주도성과 집념을 나중에 얻었습니다(2022–2024). 반대 순서였다면 '만들고 싶은 것'이 사용자를 이겼을 것입니다. 만들고 싶은 것과 사용자 니즈 사이의 간극을 견디는 일이 곧 PO의 일이고, 그래서 직무 전환이 단절이 아니라 연장이 됐습니다."
+                    kicker: "하드스킬",
+                    title: "데이터를 설계하고, 분석하고, 화면으로 되돌립니다",
+                    body: "지표를 누가 만들어주기를 기다리지 않습니다. 무엇을 볼지 정하고(설계), GA4와 BigQuery에 쌓이게 만들고(구축), 코호트와 퍼널로 읽습니다(분석). 읽은 결과는 리포트로 끝내지 않고 사용자가 실제로 궁금해할 형태로 화면에 다시 올립니다. 도구는 필요하면 직접 만듭니다. 에이전틱 코딩으로 홈페이지와 자동화 에이전트를 혼자 붙였고, 기획부터 구현과 측정까지 한 사람 안에서 사이클을 돌립니다. 0to1 서비스의 퍼널을 단계별로 이렇게 움직였습니다.",
+                    points: [
+                        "획득 · 프로그래매틱 SEO로 515만 페이지를 자동 생성해 오가닉 유입 19,000% 증가",
+                        "활성 · 유저 저니와 온보딩을 다시 짜고 코호트로 이탈 지점을 특정해 D7 리텐션 65% 증가, 주 평균 분석 건수 45% 증가",
+                        "수익 · CTA A/B 테스트를 돌려 3개월간 콘텐츠 → 서비스 전환율 27% 달성",
+                        "추천 · 분석 결과를 공유할 수 있는 콘텐츠 단위로 묶어 재유입 경로를 설계"
+                    ]
                 },
                 {
-                    title: "추상화 레벨이 한 칸씩 올라간다",
-                    body: "화면(2021) → 여정(2022) → 지표(2023) → 퍼널과 유입(2024) → 도메인의 언어(2025–). '보이지 않는 것을 보자'는 원칙이 매 구간 한 단계 위에서 반복됐습니다. 고객이 사는 것은 NFT가 아니라 와인이었고, 고객이 필요로 하는 것은 데이터가 아니라 데이터로 얻는 가치였습니다. 같은 문장이 다른 높이에서 두 번 증명된 셈입니다."
+                    kicker: "소프트스킬",
+                    title: "끝까지 붙잡되, 혼자 붙잡지 않습니다",
+                    body: "일하는 방식의 중심은 집념입니다. 목표가 정해지면 방법이 없다는 이유로 접지 않고, 필요한 수단을 찾아서 되게 만듭니다. 다만 혼자 오래 버티는 집념은 팀에서 민폐가 된다는 것도 배웠습니다. 그래서 신뢰를 먼저 쌓습니다. 동료도 고객이라고 보고, 상대의 맥락에서 한 번 생각한 뒤 말하고, 약속한 것을 계속 지킵니다. 리더십은 팔로워십에서 시작한다고 믿어서 남의 일을 먼저 돕고 필요한 순간에 앞에 섭니다. 그리고 일이 어려워질수록 팀의 온도를 지키려 합니다. 위기일수록 농담 한마디가 다음 시도를 가능하게 하더군요. 사람의 강점은 1:1 대화에서 가장 잘 나온다는 것도 여러 팀을 거치며 확인했습니다."
                 }
             ],
             closingTitle: "그리고 지금",
-            closing: "협업에서 지키는 것은 신뢰·집념·재미 세 가지입니다. 역지사지하고 경청하며 꾸준한 모습으로 신뢰를 쌓고, 목표가 생기면 끝날 때까지 문제를 놓지 않으며, 위기에는 유머로 팀의 온도를 지킵니다. 1:1 대화에서 강점이 가장 잘 나온다는 것도 여러 팀을 거치며 확인했습니다. 실험의 주기는 계속 짧아지고 있습니다. 4시간에 가설 3개를 검증하던 방식이 에이전틱 코딩을 만나 기획·구현·측정을 혼자 관통하는 사이클이 됐습니다. 다음 구간의 질문은 하나입니다. 넓이를 어떻게 깊이로 증명할 것인가. 지금은 상권과 부동산이라는 한 도메인 안에서 그 답을 만들고 있습니다."
+            closing: "지금까지가 0to1을 한 바퀴 돌아본 시간이었습니다. 유입을 만들고, 사용자를 남기고, 전환으로 잇는 흐름을 혼자 설계하고 측정해봤습니다. 다음을 찾는 이유도 여기 있습니다. 같은 루프를 더 큰 사용자 규모와 더 어려운 문제 위에서 돌려보고 싶습니다. 계속 키우고 싶은 역량은 하나입니다. 필요한 수단이 있다면 무엇이든 가져와서 안 되는 일을 되게 만드는 문제 해결력. 데이터든 AI든 직접 짠 코드든 도구는 그때그때 바뀌겠지만, 될 때까지 놓지 않는 방식은 바뀌지 않을 것 같습니다. 그 끝에 두고 있는 목표는 분명합니다. 언젠가 구글에서, 전 세계 사용자가 매일 쓰는 제품의 문제를 이 방식으로 풀고 싶습니다."
         }
     },
     EN: {
         label: "TIMELINE",
-        title: "From twenty to now",
-        description: "Six chapters, from a visual design major to a data product owner.",
+        title: "From a paper notebook to now",
+        description: "One panel before university, then six chapters from a visual design major to a data product owner.",
         hint: "Scroll or drag horizontally",
         cardLabels: {
             result: "Result",
             lesson: "Lesson"
+        },
+        prologue: {
+            period: "— 2016",
+            eraTitle: "Before I called it building",
+            kind: "Before",
+            tone: "other",
+            cardPeriod: "Before university",
+            title: "A paper notebook and a library",
+            body: [
+                "In elementary school I built games in a paper notebook — writing the rules, drawing the maps, then pulling classmates in at every break to actually play them. When the reaction was flat, I rewrote the rules that night and brought it back the next day. I had no word for users yet, but building, showing, and revising was already the loop.",
+                "Through three years of high school I read more books than anyone in my grade. Reading across every genre kept widening what I was curious about, and that is where the habit started: looking for the same structure inside stories that seem to have nothing to do with each other."
+            ]
         },
         eras: [
             {
@@ -301,8 +346,8 @@ export const timeline = {
                         end: "2023-08",
                         kind: "Study",
                         tone: "study",
-                        title: "University of Seoul — Visual Design, double major in Entrepreneurship",
-                        body: "As a kid I built games in paper notebooks and recruited classmates as players; I wanted to carry that habit into a discipline. To develop a point of view of my own, I kept pulling in ideas from outside the major — anatomy, light, history — and looking for the connections. I added entrepreneurship as a second major to see business growth, not just user convenience.",
+                        title: "University of Seoul — Visual Design",
+                        body: "Studying art history, I saw that the work of any era is interlocked with what philosophy, engineering, and history achieved at the same time. From then on I worked like a cross-pollinator rather than a specialist — moving between fields, benchmarking references, and building my own point of view and branding around what made the work different from everyone else's. On the screen itself, that became UX and UI design: what a user sees first and how they move through it.",
                         result: "Academic excellence scholarship (Feb 2021); capstone project DATO, a healthcare MyData sharing platform, plus two others",
                         lesson: "Creativity is not inventing from nothing. It is finding the link between two distant ideas."
                     },
@@ -324,8 +369,8 @@ export const timeline = {
                         kind: "Service",
                         tone: "other",
                         title: "Military service",
-                        body: "I enlisted right after the competition and served 19 months. Every day confirmed that an organization moves only when you understand other people's roles before your own, and a shy temperament slowly changed through constant contact with strangers.",
-                        result: "Left service certain that product and entrepreneurship were the direction",
+                        body: "I enlisted as an artilleryman, but when the battalion's public affairs officer post fell vacant I was reassigned to it as an enlisted soldier. I took charge of the battalion's values and morale education, planning and delivering the sessions myself, and doubled as the keeper of the battalion library — shelving books and reading whatever passed through my hands. One of them, Zero to One, set the direction for after service: to build what I wanted to build I would need business and engineering, so while still serving I planned a second major in entrepreneurship and an exchange semester to learn to code.",
+                        result: "First place in the regimental public affairs evaluation; second major and exchange plan settled before discharge",
                         lesson: "Leadership begins with followership."
                     }
                 ]
@@ -338,6 +383,17 @@ export const timeline = {
                 title: "Stepping outside the major",
                 inflection: "Realizing the language of design alone caps what I can build",
                 items: [
+                    {
+                        period: "Mar 2021 — Aug 2023",
+                        start: "2021-03",
+                        end: "2023-08",
+                        kind: "Study",
+                        tone: "study",
+                        title: "University of Seoul — double major in Entrepreneurship",
+                        body: "A well-made screen does not last unless it sits on a structure where money moves, so from the first semester of 2021 I added entrepreneurship as a second major. I learned revenue strategy and entrepreneurship, but what stayed was the posture rather than the frameworks: growth comes in stages, each stage has exactly one thing that matters most, and on the hard problems it is the person who refuses to let go who ends up with the answer.",
+                        result: "Second major completed (graduated Aug 2023); since then every plan carries its revenue structure and growth stage with it",
+                        lesson: "Entrepreneurship is holding on to one way it could work instead of counting the reasons it cannot."
+                    },
                     {
                         period: "Jun 2021 — Jul 2021",
                         start: "2021-06",
@@ -526,28 +582,38 @@ export const timeline = {
         ],
         analysis: {
             label: "SYNTHESIS",
-            title: "Four things that run through every chapter",
-            intro: "The six chapters look like different jobs, but they read more like one motion repeating at a wider radius. Here is what changed at each turning point, and what never did.",
+            title: "Four things that remain",
+            intro: "Lay the whole timeline out and four things remain: what I care about, where that came from, what I can do now, and how I work with a team.",
             lenses: [
                 {
-                    title: "One loop, a widening radius",
-                    body: "Choose a world → gather people → watch what they do → revise the rules. That loop was already complete in elementary school, gathering classmates around a game drawn in a paper notebook. Only the radius changed: dozens of classmates → 300 interviewees and 60 B2B companies → a 300-person community → 5.15M pages people meet through search. The title moved from designer to PO; the motion never moved at all."
+                    kicker: "Philosophy",
+                    title: "Looking past what is visible",
+                    body: "What people actually want tends to sit behind what they ask for. Customers were buying wine, not an NFT; what they needed was not data but the decision the data makes possible. So when a request arrives I do not build it as stated — I rewrite it as \"what is this person unable to decide right now?\" After that the motion is always the same: ship the smallest version, watch where people actually stop, revise the rules. When judgment is split, I follow the numbers and the user's words rather than my own taste. Good product work is not knowing the right answer up front; it is building a structure that tells you that you are wrong sooner than anyone else would.",
                 },
                 {
-                    title: "The breadth is a method, not a taste",
-                    body: "A mind that works by finding links and analogies between unrelated ideas is pushed outside its major by necessity. Visual design → entrepreneurship → computer science on exchange → a machine learning bootcamp → agentic coding is not scatter; it is the same method repeating. And in September 2024 those pieces finally lined up with a single role, one that needs marketing (SEO), domain knowledge (commercial districts, real estate), content, data, and implementation from the same person."
+                    kicker: "Background",
+                    title: "Design, engineering, and entrepreneurship in one person",
+                    body: "Visual design taught me how to build screens where users move to the next action without hesitating — reworking onboarding and information structure at BLINKERS lifted dwell time 48%. Choosing computer science on exchange let me build what I wanted to build myself, and startup clubs, a second major, and competitions showed me which company numbers those screens come back as. I did not study the three separately; each one came from getting stuck in the last. That combination is now the differentiator: when marketing, domain knowledge, content, data, and implementation live with one person, nothing leaks in the handoffs.",
                 },
                 {
-                    title: "Humility first, initiative second",
-                    body: "The order mattered. Listening and humility came first, from UX research (2021–2022); initiative and persistence came later, from startup work and hackathons (2022–2024). In the reverse order, the wish to build would have beaten the user. Holding the gap between what you want to build and what users need is precisely the PO's job, which is why the career change read as continuation rather than a break."
+                    kicker: "Hard skills",
+                    title: "Designing data, analyzing it, returning it to the screen",
+                    body: "I do not wait for someone else to build the metrics. I decide what to watch (design), make it land in GA4 and BigQuery (build), and read it through cohorts and funnels (analyze). The reading does not stop at a report — it goes back onto the screen in the shape users actually want. When a tool is missing I build it: I put the homepage and the automation agents together myself with agentic coding, and run planning, building, and measurement in one pair of hands. Stage by stage, that is how the 0-to-1 funnel moved.",
+                    points: [
+                        "Acquisition · 5.15M pages auto-generated with programmatic SEO, organic traffic up 19,000%",
+                        "Activation · User journey and onboarding rebuilt, drop-off points located through cohort analysis — D7 retention up 65%, weekly analyses up 45%",
+                        "Revenue · CTA A/B tests driving a 27% content-to-service conversion rate over three months",
+                        "Referral · Analysis results packaged into shareable content units to create a return path"
+                    ]
                 },
                 {
-                    title: "The level of abstraction climbs one step at a time",
-                    body: "Screens (2021) → journeys (2022) → metrics (2023) → funnels and acquisition (2024) → the language of a domain (2025–). The principle of looking past what is visible repeated one level higher each chapter. Customers were buying wine, not an NFT; customers needed value, not data. The same sentence, proven twice at different altitudes."
+                    kicker: "Soft skills",
+                    title: "Holding on to the end, but not alone",
+                    body: "Persistence sits at the center of how I work. Once a goal is set, I do not drop it because there is no obvious method — I find the means and make it work. But I also learned that persistence held alone becomes a burden on a team. So trust comes first: I treat colleagues as customers, think from their context before speaking, and keep doing what I said I would. I believe leadership starts with followership, so I help with other people's work first and step forward when the moment needs it. And the harder things get, the more I try to protect the team's temperature — in a crisis, one joke is often what makes the next attempt possible. Across several teams I also confirmed that people's strengths come out most in one-on-one conversation.",
                 }
             ],
             closingTitle: "And now",
-            closing: "In collaboration I hold to three things: trust, persistence, and fun. Trust comes from putting myself in others' position, listening, and showing up consistently; persistence means not letting go of a problem until it is finished; and in a crisis humor keeps the team's temperature up. Across several teams I confirmed that my strengths come out most in one-on-one conversation. The experiment cycle keeps getting shorter — validating three hypotheses in four hours became, with agentic coding, a cycle where planning, building, and measuring run through one pair of hands. The next chapter has a single question: how do I prove breadth as depth? Right now I am working out the answer inside one domain — commercial districts and real estate."
+            closing: "So far this has been one full lap around 0 to 1 — building acquisition, keeping users, and carrying them to conversion, designed and measured by hand. That is also why I am looking for what comes next: I want to run the same loop at a larger user scale and against harder problems. There is one capability I want to keep growing — taking whatever means the problem requires and making the impossible work. Data, AI, code I wrote myself: the tools will keep changing, but not letting go until it works will not. And the goal at the end of it is clear. Someday, at Google, I want to solve problems in products the world uses every day, in exactly that way."
         }
     }
 };
