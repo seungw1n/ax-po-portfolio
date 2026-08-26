@@ -41,7 +41,7 @@ export const timeline = {
                         kind: "학업",
                         tone: "study",
                         title: "서울시립대학교 시각디자인 전공",
-                        body: "미술사를 공부하다 한 시대의 작품이 철학과 공학, 역사의 성취와 전부 맞물려 있다는 걸 알게 됐습니다. 그때부터 한 분야만 파는 대신 크로스 폴리네이터처럼 여러 분야를 옮겨 다니며 레퍼런스를 벤치마크했고, 남의 작품과 무엇이 다른지를 기준으로 제 작품관과 브랜딩을 세웠습니다. 화면 위에서는 사용자가 무엇을 먼저 보고 어떻게 움직이는지를 다루는 UX·UI 디자인을 배웠습니다.",
+                        body: "미술사를 공부하다 한 시대의 작품이 철학과 공학, 역사의 성취와 전부 맞물려 있다는 걸 알게 됐습니다. 그때부터 한 분야만 파는 대신 크로스 폴리네이터처럼 여러 분야를 옮겨 다니며 레퍼런스를 벤치마크했고, 한 분야의 문제 해결 방식을 다른 분야에 옮겨 붙여 남들과 다른 관점을 만들어내는 훈련을 했습니다. 그 관점 위에서 다른 작품과 무엇이 다른지를 기준으로 제 작품관과 브랜딩을 세웠습니다. 화면에서는 사용자 관점으로 내려와, 사용자가 무엇을 먼저 보고 어떤 순서로 움직이는지 여정을 따라가고 말로 표현되지 않는 심리적인 반응까지 니즈로 읽어내는 UX·UI 디자인을 배웠습니다.",
                         result: "학점우수장학(2021.02), 졸업 프로젝트 헬스케어 마이데이터 공유 플랫폼 'DATO' 외 2건",
                         lesson: "창의는 없던 것을 만드는 일이 아니라, 멀리 있는 두 개념 사이에서 연결을 찾아내는 일이다."
                     },
@@ -52,9 +52,9 @@ export const timeline = {
                         kind: "창업",
                         tone: "activity",
                         title: "SK LOOKIE 창업동아리 · 교내 창업경진대회",
-                        body: "아버지의 영향으로 막연히 갖고 있던 '내 사업'이라는 생각을 실제로 시험해보고 싶었습니다. 15개월간 동아리에서 아이디어를 굴리며 게이미피케이션 기반 맛집 공유 SNS를 팀으로 기획했고, 사람을 모으는 장치인 게임 규칙을 그대로 서비스 구조에 옮겨봤습니다.",
+                        body: "아버지의 영향으로 막연히 갖고 있던 '내 사업'이라는 생각을 실제로 시험해보고 싶었습니다. 15개월간 동아리와 경진대회를 거치며 디자인씽킹을 배워 아이디어부터 내는 대신 문제와 사용자를 먼저 정의하는 순서를 몸에 익혔고, 그 위에 게이미피케이션을 접목해 맛집 공유 SNS를 팀으로 기획했습니다. 사람을 모으는 장치인 게임 규칙을 그대로 서비스 구조에 옮겨, 프로필이 쌓이고 성장하는 재미로 다시 들어오게 만드는 리텐션과 친구 추천으로 퍼지는 바이럴 구조를 처음 다뤄봤습니다.",
                         result: "서울시립대학교 창업경진대회 장려상 (2019.01)",
-                        lesson: "아이디어는 발표 자료가 아니라, 사람이 실제로 하는 행동으로 증명된다."
+                        lesson: "사용자가 실제로 하는 행동이 진짜 수요다."
                     },
                     {
                         period: "2019.01 — 2020.09",
@@ -65,7 +65,7 @@ export const timeline = {
                         title: "군 복무",
                         body: "포병으로 입대했지만 대대 정훈장교 자리가 공석이 되며 정훈병으로 보직이 바뀌었습니다. 대대의 정신전력 정훈 교육을 맡아 교육을 기획하고 직접 진행했고, 대대 도서관 관리병을 겸하며 책을 정리하는 김에 닥치는 대로 읽었습니다. 그중 『제로 투 원』이 전역 후의 방향을 정해줬습니다. 만들고 싶은 것을 직접 만들려면 비즈니스와 개발이 필요하다고 보고, 창업학 복수전공과 개발을 배우기 위한 교환학생 계획을 복무 중에 세웠습니다.",
                         result: "연대 정훈평가 1등 · 전역 전에 창업학 복수전공과 교환학생 계획 확정",
-                        lesson: "리더십은 팔로워십에서 시작된다."
+                        lesson: "질 것 같은 순간에도 끝까지 최선을 다하는 태도, 그게 반복되면 결국 이긴다."
                     }
                 ]
             },
@@ -84,9 +84,9 @@ export const timeline = {
                         kind: "학업",
                         tone: "study",
                         title: "서울시립대학교 창업학 복수전공",
-                        body: "잘 만든 화면도 돈이 도는 구조 위에 있지 않으면 오래가지 못한다는 걸 보고, 2021년 1학기부터 창업학을 복수전공했습니다. 수익 전략과 기업가 정신을 배웠는데 남은 것은 방법론보다 태도였습니다. 성장에는 단계가 있고 그 단계마다 지금 가장 중요한 하나에 집중해야 한다는 것, 그리고 어려운 문제일수록 집념으로 끝까지 붙잡는 사람이 결국 답을 만든다는 것.",
+                        body: "잘 만든 화면도 돈이 도는 구조 위에 있지 않으면 오래가지 못한다는 걸 보고, 2021년 1학기부터 창업학을 복수전공했습니다. 수익 전략과 기업가 정신을 배웠습니다. 성장에는 단계가 있어 단계마다 지금 가장 중요한 하나에 집중해야 한다는 것, 어려운 문제일수록 집념으로 끝까지 붙잡는 사람이 결국 답을 만든다는 것. 그리고 기업가 정신이 창업자만의 것이 아니라 미션을 함께 진 구성원 각자에게 필요한 것이라는 걸 이때 알았습니다.",
                         result: "복수전공 이수(2023.08 졸업) · 이후 모든 기획에 수익 구조와 성장 단계를 함께 놓는 기준이 됨",
-                        lesson: "안 되는 이유를 세는 대신 되게 할 방법 하나를 붙잡는 것, 그게 기업가 정신이다."
+                        lesson: "혁신은 구성원 각자가 자기 몫의 기업가 정신으로 미션을 붙잡고 창의적으로 풀 때 나온다. 리더십은 그 자리를 이해하는 데서, 그러니까 팔로워십에서 시작된다."
                     },
                     {
                         period: "2021.06 — 2021.07",
@@ -347,7 +347,7 @@ export const timeline = {
                         kind: "Study",
                         tone: "study",
                         title: "University of Seoul — Visual Design",
-                        body: "Studying art history, I saw that the work of any era is interlocked with what philosophy, engineering, and history achieved at the same time. From then on I worked like a cross-pollinator rather than a specialist — moving between fields, benchmarking references, and building my own point of view and branding around what made the work different from everyone else's. On the screen itself, that became UX and UI design: what a user sees first and how they move through it.",
+                        body: "Studying art history, I saw that the work of any era is interlocked with what philosophy, engineering, and history achieved at the same time. From then on I worked like a cross-pollinator rather than a specialist — moving between fields, benchmarking references, and training myself to graft one field's way of solving a problem onto another until the perspective was one nobody else had. On top of that I built my own point of view and branding around what made the work different from everyone else's. On the screen itself, that became UX and UI design: following the journey — what a user sees first and in what order they move — and reading the reactions they never put into words as needs.",
                         result: "Academic excellence scholarship (Feb 2021); capstone project DATO, a healthcare MyData sharing platform, plus two others",
                         lesson: "Creativity is not inventing from nothing. It is finding the link between two distant ideas."
                     },
@@ -358,9 +358,9 @@ export const timeline = {
                         kind: "Startup",
                         tone: "activity",
                         title: "SK LOOKIE startup club · University startup competition",
-                        body: "My father's work had left me with a vague intention to run my own business, and I wanted to test it for real. Over 15 months in the club I shaped a gamified social network for sharing restaurants, moving the mechanism that gathers people — game rules — directly into the product structure.",
+                        body: "My father's work had left me with a vague intention to run my own business, and I wanted to test it for real. The club and the competition taught me design thinking — defining the problem and the user before reaching for an idea — and on top of that I applied gamification to a social network for sharing restaurants that I shaped with a team. Moving the mechanism that gathers people — game rules — directly into the product structure was my first time working with retention built on a profile that visibly grows, and virality built on inviting friends.",
                         result: "Encouragement Award, University of Seoul startup competition (Jan 2019)",
-                        lesson: "An idea is proven by what people actually do, not by the deck."
+                        lesson: "What users actually do is the real demand."
                     },
                     {
                         period: "Jan 2019 — Sep 2020",
@@ -371,7 +371,7 @@ export const timeline = {
                         title: "Military service",
                         body: "I enlisted as an artilleryman, but when the battalion's public affairs officer post fell vacant I was reassigned to it as an enlisted soldier. I took charge of the battalion's values and morale education, planning and delivering the sessions myself, and doubled as the keeper of the battalion library — shelving books and reading whatever passed through my hands. One of them, Zero to One, set the direction for after service: to build what I wanted to build I would need business and engineering, so while still serving I planned a second major in entrepreneurship and an exchange semester to learn to code.",
                         result: "First place in the regimental public affairs evaluation; second major and exchange plan settled before discharge",
-                        lesson: "Leadership begins with followership."
+                        lesson: "Giving everything to the end even when the loss is already in sight — repeat that and you win."
                     }
                 ]
             },
@@ -390,9 +390,9 @@ export const timeline = {
                         kind: "Study",
                         tone: "study",
                         title: "University of Seoul — double major in Entrepreneurship",
-                        body: "A well-made screen does not last unless it sits on a structure where money moves, so from the first semester of 2021 I added entrepreneurship as a second major. I learned revenue strategy and entrepreneurship, but what stayed was the posture rather than the frameworks: growth comes in stages, each stage has exactly one thing that matters most, and on the hard problems it is the person who refuses to let go who ends up with the answer.",
+                        body: "A well-made screen does not last unless it sits on a structure where money moves, so from the first semester of 2021 I added entrepreneurship as a second major. I learned revenue strategy and entrepreneurship: growth comes in stages, each stage has exactly one thing that matters most, and on the hard problems it is the person who refuses to let go who ends up with the answer. It was also where I learned that entrepreneurship does not belong to founders alone — it is what every member carrying the mission needs.",
                         result: "Second major completed (graduated Aug 2023); since then every plan carries its revenue structure and growth stage with it",
-                        lesson: "Entrepreneurship is holding on to one way it could work instead of counting the reasons it cannot."
+                        lesson: "Innovation comes when every member holds the mission with their own entrepreneurship and solves it creatively. Leadership begins with understanding that place — with followership."
                     },
                     {
                         period: "Jun 2021 — Jul 2021",
