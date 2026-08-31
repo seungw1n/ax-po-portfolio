@@ -335,7 +335,7 @@ const AboutTimeline = () => {
                             <div className="relative w-[280px] md:w-[320px] shrink-0">
                                 <div className="h-[46px] border-l border-dashed border-black/20 pl-3 pr-2 pt-0.5">
                                     <p className="text-[10px] tracking-[0.2em] uppercase text-black/35 truncate">
-                                        00 · {prologue.period}
+                                        00
                                     </p>
                                     <p className="mt-0.5 text-[13px] font-bold leading-tight text-black/55 truncate">
                                         {prologue.eraTitle}
@@ -434,7 +434,7 @@ const AboutTimeline = () => {
                         </svg>
 
                         {/* 카드 행 */}
-                        <div className="flex items-stretch gap-4 pt-12">
+                        <div className="flex items-stretch gap-4 pt-8">
                             {prologue && <PrologueCard item={prologue} />}
                             {numberedItems.map((item) => (
                                 <TimelineCard

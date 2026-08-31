@@ -14,15 +14,14 @@ export const timeline = {
             lesson: "레슨런"
         },
         prologue: {
-            period: "~ 2016",
             eraTitle: "만드는 사람이 되기 전",
             kind: "그 이전",
             tone: "other",
             cardPeriod: "대학 입학 이전",
             title: "종이 공책과 도서관",
             body: [
-                "초등학생 때 종이 공책에 게임을 만들었습니다. 규칙을 적고 지도를 그린 다음, 쉬는 시간마다 반 친구들을 불러 모아 직접 해보게 했습니다. 반응이 시원찮으면 그날 밤 규칙을 고쳐 다음 날 다시 가져갔습니다. 사용자라는 말을 몰랐을 뿐, 만들고 보여주고 고치는 일은 그때부터 반복하고 있었습니다.",
-                "고등학교 3년 동안은 다독왕이었습니다. 장르를 가리지 않고 읽다 보니 관심 가는 분야가 계속 늘어났고, 서로 상관없어 보이는 이야기 사이에서 닮은 구조를 찾는 버릇도 이때 생겼습니다."
+                "초등학생 때 종이 공책에 게임을 만들었습니다. 세계관과 규칙을 만들고, 쉬는 시간마다 반 친구들이 모여 플레이했습니다. 점심시간, 방과 후 업데이트하여 다음 날 다시 가져갔습니다.",
+                "고등학교 3년 동안은 다독왕이었습니다. 개인적으로는 근현대 한국 소설에서 시대적 변화와 인물에 놓인 아이러니한 상황을 재밌게 봤습니다. 자기계발서는 분야를 가리지 않고 제목만 보고 손에 잡히는 대로 읽었습니다. 하나를 깊게 파기보다 얕더라도 여러 분야를 두루 건드리는 쪽이 즐거웠습니다. 매몰비용을 아까워하는 성격이라 한 번 펼친 책은 끝까지 읽었는데, 돌아보면 그 고집이 맥락을 이해하는 역량에 도움이 됐습니다."
             ]
         },
         eras: [
@@ -106,7 +105,7 @@ export const timeline = {
                         kind: "학업",
                         tone: "study",
                         title: "샌프란시스코 주립대 교환학생 — 컴퓨터과학",
-                        body: "디자인 전공자가 개발의 언어를 모르면, 만들 수 있는 것의 한계가 남이 정해준 대로 정해진다고 느꼈습니다. 전공을 컴퓨터과학으로 바꿔 교환학생을 갔고, 교내 개발자 커뮤니티에 들어가 3개월간 함께 코드를 쓰며 기획·디자인·구현이 어디서 어긋나는지 관찰했습니다.",
+                        body: "원래 개발에 관심이 있어 인터넷 강의를 보며 혼자 익혀왔습니다. 군 복무 중에는 공책에 손으로 코드를 썼습니다. 독학만으로는 기초가 성기다고 느껴 정규 커리큘럼으로 제대로 다져보고 싶었고, 전공을 컴퓨터과학으로 바꿔 교환학생을 갔습니다. 교내 개발자 커뮤니티에 들어가 3개월간 함께 코드를 쓰면서, 같은 문제를 두고도 비즈니스와 디자인, 개발이 각자 다른 관점으로 접근한다는 걸 봤습니다. 그 차이를 알게 된 것이 가장 큰 소득이었습니다.",
                         result: "이후 모든 프로젝트를 구현 가능성 위에서 기획하게 됨. 훗날 에이전틱 코딩을 빠르게 받아들이는 기반",
                         lesson: "다른 직군의 언어를 배우면 협업이 아니라 설계 자체가 달라진다."
                     }
@@ -127,19 +126,19 @@ export const timeline = {
                         kind: "실무",
                         tone: "work",
                         title: "BLINKERS — 프로덕트 디자이너",
-                        body: "기술이 앞에 서 있는 제품에서 고객이 진짜 사는 것이 무엇인지 확인하고 싶었습니다. 인턴 3개월을 거쳐 계약직 6개월로 이어가며 웹 P2P NFT 오픈마켓 'Bank of Wine'의 UX/UI를 총괄했고, B2C 300여 명·B2B 60여 개 사를 대상으로 설문과 심층 인터뷰를 진행하고 CES 2023을 포함한 행사 부스를 직접 운영했습니다. 인터뷰에서 얻은 인사이트를 'AI 와인가격 예측'이라는 형태로 화면에 옮겼습니다.",
+                        body: "해커톤에서 과제를 냈던 스타트업이 블링커스였고, 그 자리에서 인턴 제안을 받았습니다. 기술이 앞에 서 있는 제품에서 고객이 진짜 사는 것이 무엇인지 확인하고 싶었습니다. 인턴 3개월 뒤 계약직 제안을 받아 6개월을 더 이어가며 웹 P2P NFT 오픈마켓 'Bank of Wine'의 UX/UI를 총괄했고, B2C 300여 명·B2B 60여 개 사를 대상으로 설문과 심층 인터뷰를 진행하고 CES 2023을 포함한 행사 부스를 직접 운영했습니다. 인터뷰에서 얻은 인사이트를 'AI 와인가격 예측'이라는 형태로 화면에 옮겼습니다.",
                         result: "체류시간 48% 증가, 상세페이지 전환율 13% 개선, 온라인 마케팅 채널(디스코드) 가입자 130% 증가",
                         lesson: "눈에 보이는 게 다가 아니다. 고객은 NFT가 아니라 와인을 사고 있었다."
                     },
                     {
-                        period: "2021 — 2023",
-                        start: "2021-01",
+                        period: "2022 — 2023",
+                        start: "2022-01",
                         end: "2023-12",
                         kind: "대외활동",
                         tone: "activity",
-                        title: "해커톤 · 공모전 · 기업 제안 과정",
-                        body: "소심한 성격을 바꾸고, 짧은 시간에 문제를 정의해 파는 훈련을 반복하고 싶었습니다. 실전창업캠프(2021), JUNCTION ASIA 2022 AWS 트랙, GLOBAL FUTURIZER 2022, 기업-학생제안 과정(Google Cloud), 생성형 AI 기획안 과정을 연달아 하며, 매번 낯선 팀에서 문제 정의부터 데모까지를 며칠 안에 끝내는 사이클을 반복했습니다.",
-                        result: "발표와 설득에 대한 두려움 극복. 문제 정의 → 가설 → 데모로 이어지는 실험 스타일이 몸에 붙음",
+                        title: "해커톤 · 대내외활동",
+                        body: "교환학생에서 컴퓨터과학을 배우고 나니 기획과 디자인, 개발이 하나의 흐름으로 보이기 시작했습니다. IT 전반이 눈에 들어온 만큼 실전에서 문제를 최대한 많이 풀어보고 싶었고, UX·UI 디자인을 주력으로 대내외 활동을 이어갔습니다. JUNCTION ASIA 2022 AWS 트랙, GLOBAL FUTURIZER 2022, 기업-학생제안 과정(Google Cloud), 생성형 AI 기획안 과정을 연달아 하며 매번 낯선 팀에서 문제 정의부터 데모까지를 며칠 안에 끝내는 사이클을 반복했습니다.",
+                        result: "문제 정의 → 가설 → 데모로 이어지는 실험 스타일이 몸에 붙음 · 과제를 냈던 기업 블링커스에서 인턴 제안을 받음",
                         lesson: "나쁜 기획은 없다. 시간이 많다고 더 좋은 기획이 되지는 않는다."
                     },
                     {
@@ -149,8 +148,8 @@ export const timeline = {
                         kind: "봉사",
                         tone: "activity",
                         title: "서울런 멘토단 · 동명아동복지센터",
-                        body: "일과 무관한 자리에서도 사람을 계속 만나고 싶었습니다. 서울런 멘토단으로 영어 교육을, 동명아동복지센터에서 정기 봉사를 3년 넘게 이어갔습니다. 이벤트가 아니라 반복으로 관계를 만드는 방식이었습니다.",
-                        result: "꾸준함이 신뢰가 되는 경험. 1:1 대화에서 강점이 나온다는 자기 이해",
+                        body: "평소 아이들에게 관심이 있었고, 그게 자연스럽게 봉사로 이어졌습니다. 서울런 멘토단에서는 영어를 가르쳤습니다. 동명아동복지센터에도 교육 봉사를 하러 갔는데, 교육 봉사자는 이미 많고 정작 선생님들의 가장 큰 고민인 청소는 손이 없다는 이야기를 들었습니다. 그래서 하려던 일을 바꿔 2년 9개월 동안 청소를 맡았습니다.",
+                        result: "동명아동복지센터 청소 봉사 2년 9개월 · 내가 하고 싶은 일보다 지금 필요한 일이 먼저라는 기준",
                         lesson: "오래 남는 관계는 이벤트가 아니라 반복에서 온다."
                     }
                 ]
@@ -181,7 +180,7 @@ export const timeline = {
                         kind: "수상",
                         tone: "activity",
                         title: "AI School 해커톤 1위",
-                        body: "기획자가 직접 만들 수 있으면 검증 속도 자체가 달라진다는 가설을 시험했습니다. 바이브코딩으로 6시간 동안 화장품 온라인 커머스의 아이템 저장 기능 프로토타입을 기획부터 배포까지 혼자 관통했습니다.",
+                        body: "기획자가 직접 만들 수 있으면 검증 속도 자체가 달라진다는 가설을 시험했습니다. UX·UI 디자인만 맡던 이전 해커톤들과 달리 개발 역할까지 함께 맡은 첫 자리였습니다. 바이브코딩으로 6시간 동안 화장품 온라인 커머스의 아이템 저장 기능 프로토타입을 기획부터 배포까지 혼자 관통했습니다.",
                         result: "1위 수상. 이후 '직접 만들어 검증한다'가 기본 작업 방식이 됨",
                         lesson: "만들 수 있는 사람이 기획하면, 가설의 크기가 아니라 개수가 늘어난다."
                     },
@@ -224,7 +223,7 @@ export const timeline = {
                         kind: "교육",
                         tone: "study",
                         title: "구글 머신러닝 부트캠프",
-                        body: "AI를 쓰는 사람이 아니라 설계에 넣는 사람이 되고 싶었습니다. 자동차 사고 시나리오 예측 모델을 직접 개발하고 Coursera 딥러닝 특화과정을 수료하며, 데이터의 어떤 성질이 성능이 되는지 확인했습니다.",
+                        body: "AI를 쓰는 사람이 아니라 설계하는 사람이 되고 싶었습니다. 자동차 사고 시나리오 예측 모델을 직접 개발하고 Coursera 딥러닝 특화과정을 수료하며, 데이터로 어떻게 모델을 학습시키고, 실질적인 기능이 되는지 확인했습니다.",
                         result: "딥러닝 특화과정 수료. 제품에 AI를 얹을지 판단하는 기준이 생김",
                         lesson: "기술을 알수록 기술을 덜 보여주게 된다."
                     },
@@ -287,17 +286,16 @@ export const timeline = {
                 {
                     kicker: "배경",
                     title: "디자인·엔지니어링·창업이 한 사람 안에 있습니다",
-                    body: "시각디자인으로 시작해 사용자가 머뭇거리지 않고 다음 행동으로 넘어가는 화면을 만드는 법을 배웠습니다. 블링커스에서 온보딩과 정보 구조를 다시 짜 체류시간을 48% 늘린 것이 그 결과입니다. 교환학생으로 컴퓨터과학을 택하면서 만들고 싶은 것을 직접 만들 수 있게 됐고, 창업 동아리와 복수전공, 경진대회를 지나며 그 화면이 회사의 어떤 숫자로 돌아오는지를 보게 됐습니다. 세 갈래를 따로 배운 게 아니라 하나를 하다 막혀서 다음을 배운 순서입니다. 지금은 이 조합 자체가 차별점입니다. 마케팅과 도메인 지식, 콘텐츠, 데이터, 구현을 한 사람이 붙잡고 있으면 넘겨주는 과정에서 새는 것이 없습니다."
+                    body: "시각디자인으로 시작해 사용자가 심리적 허들을 느끼지 않고 다음 행동으로 전환되도록 화면을 설계하는 법을 배웠습니다. 블링커스에서 온보딩과 정보 구조를 다시 짜 체류시간을 48% 늘린 것이 그 결과입니다. 교환학생으로 컴퓨터과학을 택하면서 만들고 싶은 것을 직접 만들 수 있게 됐고, 창업 동아리와 복수전공, 경진대회를 지나며 그 화면이 회사의 어떤 숫자로 돌아오는지를 보게 됐습니다. 세 갈래를 따로 배운 게 아니라 하나를 하다 막혀서 다음을 배운 순서입니다. 지금은 이 조합 자체가 차별점입니다. 마케팅과 도메인 지식, 콘텐츠, 데이터, 구현을 한 사람이 붙잡고 있으면 넘겨주는 과정에서 새는 것이 없습니다."
                 },
                 {
                     kicker: "하드스킬",
                     title: "데이터를 설계하고, 분석하고, 화면으로 되돌립니다",
-                    body: "지표를 누가 만들어주기를 기다리지 않습니다. 무엇을 볼지 정하고(설계), GA4와 BigQuery에 쌓이게 만들고(구축), 코호트와 퍼널로 읽습니다(분석). 읽은 결과는 리포트로 끝내지 않고 사용자가 실제로 궁금해할 형태로 화면에 다시 올립니다. 도구는 필요하면 직접 만듭니다. 에이전틱 코딩으로 홈페이지와 자동화 에이전트를 혼자 붙였고, 기획부터 구현과 측정까지 한 사람 안에서 사이클을 돌립니다. 0to1 서비스의 퍼널을 단계별로 이렇게 움직였습니다.",
+                    body: "지표를 누가 만들어주기를 기다리지 않습니다. 무엇을 볼지 정하고(설계), GA4와 BigQuery에 쌓이게 만들고(구축), 코호트와 퍼널로 읽습니다(분석). 도구는 필요하면 직접 만듭니다. 에이전틱 코딩으로 홈페이지와 자동화 에이전트를 혼자 붙였고, 기획부터 구현과 측정까지 한 사람 안에서 사이클을 돌립니다. 0to1 서비스의 퍼널을 단계별로 이렇게 움직였습니다.",
                     points: [
                         "획득 · 프로그래매틱 SEO로 515만 페이지를 자동 생성해 오가닉 유입 19,000% 증가",
                         "활성 · 유저 저니와 온보딩을 다시 짜고 코호트로 이탈 지점을 특정해 D7 리텐션 65% 증가, 주 평균 분석 건수 45% 증가",
-                        "수익 · CTA A/B 테스트를 돌려 3개월간 콘텐츠 → 서비스 전환율 27% 달성",
-                        "추천 · 분석 결과를 공유할 수 있는 콘텐츠 단위로 묶어 재유입 경로를 설계"
+                        "수익 · CTA A/B 테스트를 돌려 3개월간 콘텐츠 → 서비스 전환율 27% 달성"
                     ]
                 },
                 {
@@ -307,7 +305,7 @@ export const timeline = {
                 }
             ],
             closingTitle: "그리고 지금",
-            closing: "지금까지가 0to1을 한 바퀴 돌아본 시간이었습니다. 유입을 만들고, 사용자를 남기고, 전환으로 잇는 흐름을 혼자 설계하고 측정해봤습니다. 다음을 찾는 이유도 여기 있습니다. 같은 루프를 더 큰 사용자 규모와 더 어려운 문제 위에서 돌려보고 싶습니다. 계속 키우고 싶은 역량은 하나입니다. 필요한 수단이 있다면 무엇이든 가져와서 안 되는 일을 되게 만드는 문제 해결력. 데이터든 AI든 직접 짠 코드든 도구는 그때그때 바뀌겠지만, 될 때까지 놓지 않는 방식은 바뀌지 않을 것 같습니다. 그 끝에 두고 있는 목표는 분명합니다. 언젠가 구글에서, 전 세계 사용자가 매일 쓰는 제품의 문제를 이 방식으로 풀고 싶습니다."
+            closing: "지금까지가 0to1을 한 바퀴 돌아본 시간이었습니다. 유입을 만들고, 사용자를 남기고, 전환으로 잇는 흐름을 혼자 설계하고 측정해봤습니다. 다음을 찾는 이유도 여기 있습니다. 같은 루프를 더 큰 사용자 규모와 더 어려운 문제 위에서 돌려보고 싶습니다. 계속 키우고 싶은 역량은 하나입니다. 필요한 수단이 있다면 무엇이든 가져와서 안 되는 일을 되게 만드는 문제 해결력. 데이터든 AI든 직접 짠 코드든 도구는 그때그때 바뀌겠지만, 될 때까지 놓지 않는 방식은 바뀌지 않을 것 같습니다. 언젠가 전 세계 사용자가 매일 쓰는 제품의 문제를 풀고 싶습니다."
         }
     },
     EN: {
@@ -320,7 +318,6 @@ export const timeline = {
             lesson: "Lesson"
         },
         prologue: {
-            period: "— 2016",
             eraTitle: "Before I called it building",
             kind: "Before",
             tone: "other",
@@ -328,7 +325,7 @@ export const timeline = {
             title: "A paper notebook and a library",
             body: [
                 "In elementary school I built games in a paper notebook — writing the rules, drawing the maps, then pulling classmates in at every break to actually play them. When the reaction was flat, I rewrote the rules that night and brought it back the next day. I had no word for users yet, but building, showing, and revising was already the loop.",
-                "Through three years of high school I read more books than anyone in my grade. Reading across every genre kept widening what I was curious about, and that is where the habit started: looking for the same structure inside stories that seem to have nothing to do with each other."
+                "Through three years of high school I read more books than anyone in my grade. What I loved was contemporary Korean fiction — the ironies the characters were caught in stayed with me for a long time. Self-help I read across every field, pulling books off the shelf by the title alone; touching many fields shallowly was more fun than digging into one. And because I hate a sunk cost, whatever I opened I finished. Looking back, that stubbornness was worth something."
             ]
         },
         eras: [
@@ -412,7 +409,7 @@ export const timeline = {
                         kind: "Study",
                         tone: "study",
                         title: "San Francisco State University — Exchange student, Computer Science",
-                        body: "A designer who does not speak the language of engineering lets someone else set the ceiling on what they can make. I went on exchange with computer science as my major, joined the campus developer community, and spent three months writing code alongside them, watching exactly where planning, design, and implementation fall out of sync.",
+                        body: "I had been teaching myself to code from online lectures for years — during military service, by hand in a notebook — but self-study left the fundamentals patchy, and I wanted a formal curriculum to set them properly. I went on exchange with computer science as my major, joined the campus developer community, and spent three months writing code alongside them. What I took away most was seeing how differently business, design, and engineering each approach the same problem.",
                         result: "Every project since has been planned on top of what is actually buildable — the ground that later made agentic coding easy to adopt",
                         lesson: "Learn another discipline's language and it changes your design, not just your collaboration."
                     }
@@ -433,19 +430,19 @@ export const timeline = {
                         kind: "Work",
                         tone: "work",
                         title: "BLINKERS — Product Designer",
-                        body: "In a product where the technology stood in front, I wanted to find out what customers were actually buying. Hired for a three-month internship that continued as a six-month contract, I led UX/UI for the P2P NFT marketplace Bank of Wine and ran surveys and in-depth interviews with ~300 B2C users and ~60 B2B companies and worked the booths myself, including CES 2023. The insight from those interviews became an AI wine price forecast on the screen.",
+                        body: "BLINKERS was the startup that set the brief at one of those hackathons, and they offered me an internship on the spot. In a product where the technology stood in front, I wanted to find out what customers were actually buying. Three months as an intern turned into a contract offer and six months more, over which I led UX/UI for the P2P NFT marketplace Bank of Wine and ran surveys and in-depth interviews with ~300 B2C users and ~60 B2B companies and worked the booths myself, including CES 2023. The insight from those interviews became an AI wine price forecast on the screen.",
                         result: "Session duration +48%, detail page conversion +13%, Discord marketing channel members +130%",
                         lesson: "What you see is not all there is. Customers were buying wine, not an NFT."
                     },
                     {
-                        period: "2021 — 2023",
-                        start: "2021-01",
+                        period: "2022 — 2023",
+                        start: "2022-01",
                         end: "2023-12",
                         kind: "Programs",
                         tone: "activity",
-                        title: "Hackathons, competitions, corporate proposal tracks",
-                        body: "I wanted to break my shyness and rehearse defining a problem and selling it under time pressure. I ran a startup camp (2021), JUNCTION ASIA 2022 AWS track, GLOBAL FUTURIZER 2022, a corporate-student proposal track with Google Cloud, and a generative AI planning course back to back — each time going from problem definition to demo within days, with a team of strangers.",
-                        result: "Lost the fear of presenting and persuading; the problem → hypothesis → demo cycle became second nature",
+                        title: "Hackathons and extracurricular programs",
+                        body: "After studying computer science on exchange, planning, design, and engineering finally read as one continuous flow. With IT in view as a whole, I wanted to solve as many real problems as I could, so I kept taking on programs with UX and UI design as my core role: JUNCTION ASIA 2022 AWS track, GLOBAL FUTURIZER 2022, a corporate-student proposal track with Google Cloud, and a generative AI planning course — each time going from problem definition to demo within days, with a team of strangers.",
+                        result: "The problem → hypothesis → demo cycle became second nature, and BLINKERS, the company that set one of the briefs, offered me an internship",
                         lesson: "There is no such thing as bad planning. More time does not make a plan better."
                     },
                     {
@@ -455,8 +452,8 @@ export const timeline = {
                         kind: "Volunteer",
                         tone: "activity",
                         title: "Seoul Learn mentor · Dongmyung Child Welfare Center",
-                        body: "I wanted to keep meeting people in places unrelated to work. I taught English as a Seoul Learn mentor and volunteered regularly at the Dongmyung Child Welfare Center for over three years — building relationships by repetition rather than by events.",
-                        result: "Learned first-hand that consistency becomes trust, and that my strengths show up most in one-on-one conversation",
+                        body: "I have always been drawn to working with kids, and that turned into volunteering. As a Seoul Learn mentor I taught English. I went to the Dongmyung Child Welfare Center to teach as well, but was told they already had more than enough teaching volunteers — what nobody signed up for was the cleaning that weighed most on the staff. So I switched to that and kept it up for two years and nine months.",
+                        result: "Two years and nine months of cleaning at the center — and a rule of thumb: what is needed now comes before what I want to give",
                         lesson: "Relationships that last come from repetition, not from events."
                     }
                 ]
@@ -487,7 +484,7 @@ export const timeline = {
                         kind: "Award",
                         tone: "activity",
                         title: "1st place, AI School Hackathon",
-                        body: "I tested a hypothesis: when the person planning can also build, the speed of validation changes outright. In six hours of vibe coding I took a save-for-later prototype for a cosmetics e-commerce store from plan to deployment on my own.",
+                        body: "I tested a hypothesis: when the person planning can also build, the speed of validation changes outright. Unlike every hackathon before it, where I took the UX/UI role, this was the first where I took the engineering role as well. In six hours of vibe coding I took a save-for-later prototype for a cosmetics e-commerce store from plan to deployment on my own.",
                         result: "First place — and from then on, building it myself became the default way to validate",
                         lesson: "When builders plan, it is not the size of hypotheses that grows but their number."
                     },
